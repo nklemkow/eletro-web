@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klemkow & Lutzenberger Elektroanlagen GbR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background-color: #003366;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    header {
+      background-image: url('images/header-bg.jpg'); /* Bildpfad anpassen */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .header-text {
+      background-color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+      padding: 2rem 3rem;
+      border-radius: 8px;
+      text-align: center;
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #e53935;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .header-text h1 span {
+      font-size: 1.8rem;
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    .header-text p {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 1rem;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      background-color: #e53935;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      scroll-margin-top: 80px;
+    }
+
+    #referenzen ul li {
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      padding: 2rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #e53935;
+      text-decoration: none;
+    }
+
+    footer h3, footer h4 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 0.5rem 0;
+      }
+
+      .header-text h1 {
+        font-size: 2rem;
+      }
+
+      .header-text h1 span {
+        font-size: 1.4rem;
+      }
+
+      .header-text p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+	
+	.about-gallery {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 2;
+  min-width: 250px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 200px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "text-top image"
+    "text-bottom text-bottom";
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-text-top {
+  grid-area: text-top;
+}
+
+.about-image {
+  grid-area: image;
+}
+.about-text-bottom {
+  grid-area: text-bottom;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .about-flex,
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#startseite">Startseite</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#referenzen">Referenzen</a>
+    <a href="#ueber-uns">Über uns</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#aktuelles">Aktuelles</a>
+  </nav>
+
+  <header id="startseite">
+    <div class="header-text">
+      <h1>
+        Klemkow & Lutzenberger
+        <span>Elektroanlagen GbR</span>
+      </h1>
+      <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
+      <button class="btn">Unverbindlich Anfragen</button>
+    </div>
+  </header>
+
+<section id="leistungen">
+  <h2>Unsere Leistungen</h2>
+  <p>
+    <strong>Tätigkeitsfeld</strong><br>
+    Wir errichten für Sie Elektroanlagen im privaten und gewerblichen Bereich.<br><br>
+    Unser Leistungsspektrum umfasst:
+    <ul>
+      <li><i class="fas fa-drafting-compass" style="margin-right: 8px;"></i> Planung von Elektroanlagen und Erstellung von Kostenangaben</li>
+      <li><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Fach- und termingerechte Ausführung der Arbeiten</li>
+      <li><i class="fas fa-file-alt" style="margin-right: 8px;"></i> Abschließende Dokumentation der Projekte</li>
+      <li><i class="fas fa-boxes" style="margin-right: 8px;"></i> Unterstützung bei Materialbeschaffung</li>
+    </ul>
+  </p>
+
+  <p><strong>Technische Leistungen</strong></p>
+  <ul>
+    <li><i class="fas fa-lightbulb" style="margin-right: 8px;"></i> Installation von Licht- und Kraftanlagen im Neu- und Altbau</li>
+    <li><i class="fas fa-tools" style="margin-right: 8px;"></i> Reparatur- und Instandhaltungsarbeiten</li>
+    <li><i class="fas fa-phone-volume" style="margin-right: 8px;"></i> Notdienst rund um die Uhr, Kundendienst und Überprüfung elektrischer Anlagen</li>
+    <li><i class="fas fa-check-circle" style="margin-right: 8px;"></i> E-Check und VDE-Überprüfung inkl. Plakettenvergabe</li>
+    <li><i class="fas fa-fire-extinguisher" style="margin-right: 8px;"></i> Brandschutz- und Schottungsmaßnahmen (mit Zertifikat)</li>
+    <li><i class="fas fa-broadcast-tower" style="margin-right: 8px;"></i> Alarmanlagen, TV- und Telekommunikationsbereich, Überspannungsschutz</li>
+    <li><i class="fas fa-thermometer-half" style="margin-right: 8px;"></i> Elektroheizungen</li>
+  </ul>
+</section>
+
+
+  <section id="referenzen">
+    <h2>Referenzen</h2>
+    <ul>
+      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
+      Adolf-Wilbrandt-Str. und Wassidlow-Str., Schwerin<br>
+      <em>Auftraggeber:</em> Neue Lübecker, Norddeutsche Wohnungsbaugenossenschaft e.G.</li>
+
+      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
+      Theodor-Fontane-Str., Hagenow<br>
+      <em>Auftraggeber:</em> Hagenower Wohnungsbaugesellschaft</li>
+
+      <li><strong>Stabsgebäude Bundeswehrkaserne</strong><br>
+      Hagenow<br>
+      <em>Auftraggeber:</em> Bundeswehr Hagenow</li>
+
+      <li><strong>Teilsanierung von Wohnungsaufgängen</strong><br>
+      Beckerstraße und Sandstraße, Schwerin<br>
+      <em>Auftraggeber:</em> SWV</li>
+
+      <li><strong>Nordkorn Baumarkt</strong><br>
+      Schwerin</li>
+
+      <li><strong>Altbausanierung Altstadt</strong><br>
+      Goethe-Str. 76, Wittenburger Str. 73/79/85, R.-Breitscheid-Str. 26,<br>
+      mehrere Häuser auf dem Obotritenring, u.a. Nr. 231 – das Haus des Kölner Bauingenieurs und Architekten</li>
+
+      <li><strong>Neuinstallation von Eigenheimen</strong><br>
+      Diverse Bauten in und um Schwerin</li>
+
+      <li><strong>Villa am Franzosenweg</strong><br>
+      Franzosenweg 10, Schwerin<br>
+      <em>Auftraggeber:</em> Familie Godescheit</li>
+
+      <li><strong>Weitere Referenzen:</strong><br>
+      Neue Lübecker Baugenossenschaft, Stadtwerke Schwerin</li>
+    </ul>
+    <button class="btn">Weitere Projekte ansehen</button>
+  </section>
+
+<section id="ueber-uns">
+  <h2>Über Uns</h2>
+  <div class="about-grid">
+    <div class="about-text-top">
+      <p>
+        <strong>Profil</strong><br>
+        Das Unternehmen Klemkow & Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von Rainer Klemkow.<br><br>
+
+        Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="images/team.jpg" alt="Teamfoto Klemkow & Lutzenberger">
+    </div>
+    <div class="about-text-bottom">
+      <p>
+        Seit nunmehr 14 Jahren führen die beiden Firmeninhaber das Unternehmen erfolgreich weiter. Den ständig wachsenden Herausforderungen und den hohen Qualitätsansprüchen der Kunden konnte das Unternehmen stets gerecht werden.<br><br>
+
+        Spezialisierungen und Weiterbildungen brachten einen klaren Vorsprung im Preis-Leistungs-Verhältnis – ohne Einschränkungen bei Qualität und Sicherheit.<br><br>
+
+        Regelmäßige Schulungen und Informationsworkshops mit Materialherstellern und Anlagenlieferanten ermöglichen es, stets neueste und zuverlässige Technik einzusetzen und auf die Ansprüche der Kunden zugeschnittene Produkte zu empfehlen.<br><br>
+
+        Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="kontakt">
+  <h2>Kontaktformular</h2>
+  <form action="https://formsubmit.co/info@schwerin-elektro.de" method="POST">
+    <!-- Optional: Spam-Schutz deaktivieren -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <!-- Optional: Weiterleitung nach erfolgreichem Absenden -->
+    <input type="hidden" name="_next" value="https://www.schwerin-elektro.de/danke.html">
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">E-Mail:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Nachricht:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit" class="btn">Absenden</button>
+  </form>
+</section>
+
+
+  <section id="aktuelles">
+    <h2>Aktuelles</h2>
+    <p>Hier könnten Neuigkeiten, Angebote oder aktuelle Projekte erscheinen. Bleiben Sie informiert!</p>
+  </section>
+
+  <footer>
+    <h3>Impressum</h3>
+    <p>
+      Klemkow & Lutzenberger Elektroanlagen GbR<br>
+      Neumühler Str. 11<br>
+      19057 Schwerin<br>
+      Telefon / Fax: 0385 - 71 93 66<br>
+      E-Mail: <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
+      Internet: <a href="https://www.schwerin-elektro.de" target="_blank">www.schwerin-elektro.de</a><br>
+      Firmengründer: Uwe Klemkow und Bernd Lutzenberger
+    </p>
+    <h4>Haftungshinweis</h4>
+    <p>
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
+      Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+    </p>
+  </footer>
+
+</body>
+</html>
