@@ -293,6 +293,43 @@ nav {
   .nav-links.show {
     display: flex;
   }
+  .nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .nav-header {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 0 1rem;
+  }
+
+  .burger {
+    order: 1;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+
+  .nav-logo {
+    order: 2;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+  
 }
 
   </style>
@@ -300,9 +337,13 @@ nav {
 <body>
 
 <nav>
-  <img src="images/logo.png" alt="Logo" class="nav-logo">
-  <div class="burger" onclick="toggleMenu()">☰</div>
-<div class="nav-links" id="navLinks">
+  <div class="nav-header">
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Logo">
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
     <a href="#startseite">Startseite</a>
     <a href="#leistungen">Leistungen</a>
     <a href="#referenzen">Referenzen</a>
