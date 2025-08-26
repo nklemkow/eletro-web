@@ -269,13 +269,20 @@ nav {
 }
 
 @media (max-width: 768px) {
+.nav-header {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 1rem;
+}
 .burger {
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
+  order: 1;
+  margin-left: 0;
+  padding-left: 0;
+  height: 60px;
   display: flex;
   align-items: center;
-  height: 100%;
 }
 
 .nav-links {
@@ -319,10 +326,13 @@ nav {
     height: 60px;
   }
 
+
 .nav-logo {
-  height: 100%;
+  order: 2;
+  height: 60px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .nav-logo img {
