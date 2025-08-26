@@ -233,14 +233,14 @@ header::after {
   }
   }
 nav {
-  background-color: #003366;
-    position: sticky;
-  top: 0;
-  height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 0;
+  height: 60px;
+  padding: 0 1rem;
+  background-color: #003366;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 .nav-logo {
@@ -324,8 +324,18 @@ nav {
 </div>
 <script>
   function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
+// Menü toggeln
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+// Menü schließen nach Klick auf Link
+document.querySelectorAll('#navLinks a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
+
 </script>
 
 
