@@ -6,6 +6,7 @@
   <title>Klemkow & Lutzenberger Elektroanlagen GbR</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
     html {
       scroll-behavior: smooth;
@@ -36,60 +37,78 @@
       font-weight: bold;
     }
 
-    header {
-      background-image: url('images/header-bg.jpg'); /* Bildpfad anpassen */
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 5rem 2rem;
-      position: relative;
-    }
+   header {
+  background-image: url('images/header-bg.jpg'); /* Bildpfad anpassen */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+  position: relative;
+}
 
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 0;
-    }
+header::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* statt 0.4 → weniger Abdunklung */
+  z-index: 0;
+}
 
-    .header-text {
-      background-color: rgba(0, 0, 0, 0.5);
-      display: inline-block;
-      padding: 2rem 3rem;
-      border-radius: 8px;
-      text-align: center;
-      color: white;
-      position: relative;
-      z-index: 1;
-    }
+.header-text {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.95); /* halbtransparentes Weiß */
+  display: inline-block;
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  text-align: center;
+  color: #003366;
+}
 
-    .header-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 2px solid #e53935;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
+.header-text h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  color: #d00000;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
-    .header-text h1 span {
-      font-size: 1.8rem;
-      display: block;
-      margin-top: 0.3rem;
-    }
+.header-text h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 1rem;
+}
 
-    .header-text p {
-      font-size: 1.1rem;
-      font-style: italic;
-      margin-top: 1rem;
-      color: #f0f0f0;
-    }
+.header-text p {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #e53935;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #002244;
+}
 
     .btn {
-      background-color: #e53935;
-      color: white;
+  background-color: #003366; /* dein Firmenblau */
+  color: white;
       padding: 0.7rem 1.5rem;
       border: none;
       border-radius: 4px;
@@ -163,57 +182,36 @@
       }
     }
 	
-	.about-gallery {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+
+
+.about-flow {
+  overflow: hidden;
 }
 
-.about-flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
+.about-float {
+  float: right;
+  width: 300px;
+  max-width: 100%;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+@media (max-width: 768px) {
+  .about-float {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem auto;
+    width: 100%;
+  }
 }
 
-.about-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-}
 
-.about-text {
-  flex: 2;
-  min-width: 250px;
-}
-
-.about-image {
-  flex: 1;
-  min-width: 200px;
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas:
-    "text-top image"
-    "text-bottom text-bottom";
-  gap: 2rem;
-  align-items: start;
-}
-
-.about-text-top {
-  grid-area: text-top;
-}
 
 .about-image {
   grid-area: image;
 }
-.about-text-bottom {
-  grid-area: text-bottom;
-}
+
 
 .about-image img {
   width: 100%;
@@ -233,36 +231,77 @@
   .about-image img {
     max-width: 100%;
   }
+  }
+nav {
+  background-color: #003366;
+  position: relative;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  z-index: 1000;
+}
+.nav-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+}
 
+.nav-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+}
 
   </style>
 </head>
 <body>
 
-  <nav>
+<nav>
+  <img src="images/logo.png" alt="Logo" class="nav-logo">
+  <div class="nav-links">
     <a href="#startseite">Startseite</a>
     <a href="#leistungen">Leistungen</a>
     <a href="#referenzen">Referenzen</a>
     <a href="#ueber-uns">Über uns</a>
     <a href="#kontakt">Kontakt</a>
     <a href="#aktuelles">Aktuelles</a>
-  </nav>
+  </div>
+</nav>
 
-  <header id="startseite">
-    <div class="header-text">
-      <h1>
-        Klemkow & Lutzenberger
-        <span>Elektroanlagen GbR</span>
-      </h1>
-      <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
-      <button class="btn">Unverbindlich Anfragen</button>
-    </div>
-  </header>
+
+
+<header>
+  <div class="header-text">
+    <h1>Elektroanlagen</h1>
+    <h2>Klemkow & Lutzenberger</h2>
+    <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
+    <button class="btn">Unverbindlich Anfragen</button>
+  </div>
+</header>
 
 <section id="leistungen">
   <h2>Unsere Leistungen</h2>
   <p>
-    <strong>Tätigkeitsfeld</strong><br>
+    
     Wir errichten für Sie Elektroanlagen im privaten und gewerblichen Bereich.<br><br>
     Unser Leistungsspektrum umfasst:
     <ul>
@@ -327,31 +366,25 @@
 
 <section id="ueber-uns">
   <h2>Über Uns</h2>
-  <div class="about-grid">
-    <div class="about-text-top">
-      <p>
-        <strong>Profil</strong><br>
-        Das Unternehmen Klemkow & Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von Rainer Klemkow.<br><br>
+  <div class="about-flow">
+    <img src="images/team.jpg" alt="Firmenfahrzeug" class="about-float">
+    <p>
+    
+      Das Unternehmen Klemkow & Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von Rainer Klemkow.<br><br>
 
-        Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.
-      </p>
-    </div>
-    <div class="about-image">
-      <img src="images/team.jpg" alt="Teamfoto Klemkow & Lutzenberger">
-    </div>
-    <div class="about-text-bottom">
-      <p>
-        Seit nunmehr 14 Jahren führen die beiden Firmeninhaber das Unternehmen erfolgreich weiter. Den ständig wachsenden Herausforderungen und den hohen Qualitätsansprüchen der Kunden konnte das Unternehmen stets gerecht werden.<br><br>
+      Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.<br><br>
 
-        Spezialisierungen und Weiterbildungen brachten einen klaren Vorsprung im Preis-Leistungs-Verhältnis – ohne Einschränkungen bei Qualität und Sicherheit.<br><br>
+      Seit nunmehr 14 Jahren führen die beiden Firmeninhaber das Unternehmen erfolgreich weiter. Den ständig wachsenden Herausforderungen und den hohen Qualitätsansprüchen der Kunden konnte das Unternehmen stets gerecht werden.<br><br>
 
-        Regelmäßige Schulungen und Informationsworkshops mit Materialherstellern und Anlagenlieferanten ermöglichen es, stets neueste und zuverlässige Technik einzusetzen und auf die Ansprüche der Kunden zugeschnittene Produkte zu empfehlen.<br><br>
+      Spezialisierungen und Weiterbildungen brachten einen klaren Vorsprung im Preis-Leistungs-Verhältnis – ohne Einschränkungen bei Qualität und Sicherheit.<br><br>
 
-        Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
-      </p>
-    </div>
+      Regelmäßige Schulungen und Informationsworkshops mit Materialherstellern und Anlagenlieferanten ermöglichen es, stets neueste und zuverlässige Technik einzusetzen und auf die Ansprüche der Kunden zugeschnittene Produkte zu empfehlen.<br><br>
+
+      Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
+    </p>
   </div>
 </section>
+
 
 
 
@@ -385,23 +418,25 @@
     <p>Hier könnten Neuigkeiten, Angebote oder aktuelle Projekte erscheinen. Bleiben Sie informiert!</p>
   </section>
 
-  <footer>
-    <h3>Impressum</h3>
-    <p>
-      Klemkow & Lutzenberger Elektroanlagen GbR<br>
-      Neumühler Str. 11<br>
-      19057 Schwerin<br>
-      Telefon / Fax: 0385 - 71 93 66<br>
-      E-Mail: <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
-      Internet: <a href="https://www.schwerin-elektro.de" target="_blank">www.schwerin-elektro.de</a><br>
-      Firmengründer: Uwe Klemkow und Bernd Lutzenberger
-    </p>
-    <h4>Haftungshinweis</h4>
-    <p>
-      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
-      Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-    </p>
-  </footer>
+<footer>
+  <h3>Impressum</h3>
+  <p>
+    Klemkow & Lutzenberger Elektroanlagen GbR<br>
+    Neumühler Str. 11<br>
+    19057 Schwerin<br>
+    Telefon / Fax: 0385 - 71 93 66<br>
+    E-Mail: info@schwerin-elektro.de<br>
+    <a href="#kontakt">→ Kontaktformular nutzen</a><br>
+    Internet: <a href="https://www.schwerin-elektro.de" target="_blank">www.schwerin-elektro.de</a><br>
+    Firmengründer: Uwe Klemkow und Bernd Lutzenberger
+  </p>
+
+  <h4>Haftungshinweis</h4>
+  <p>
+    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links.
+    Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+  </p>
+</footer>
 
 </body>
 </html>
