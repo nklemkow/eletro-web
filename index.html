@@ -270,36 +270,36 @@ nav {
   align-items: center;
 }
 
-.burger {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: white;
+
+
+.burger:hover {
+  background-color: rgba(255,255,255,0.3);
 }
 
 @media (max-width: 768px) {
-  .burger {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .nav-links {
-    display: none;
+.burger {
+  background-color: rgba(255,255,255,0.1);
+  padding: 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+.nav-links {
+    display: none; /* initial versteckt */
     flex-direction: column;
+    gap: 0.5rem;
     background-color: #003366;
     padding: 1rem;
     position: absolute;
     top: 60px;
     right: 0;
     width: 100%;
+    z-index: 1000;
   }
 
   .nav-links.show {
     display: flex;
   }
-
 }
 
   </style>
