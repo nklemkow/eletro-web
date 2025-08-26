@@ -269,6 +269,36 @@ nav {
   align-items: center;
 }
 
+.burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #003366;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
 }
 
   </style>
@@ -287,6 +317,15 @@ nav {
   </div>
 </nav>
 
+<div class="burger" onclick="toggleMenu()">☰</div>
+<div class="nav-links" id="navLinks">
+  <!-- deine Links -->
+</div>
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+  }
+</script>
 
 
 <header>
