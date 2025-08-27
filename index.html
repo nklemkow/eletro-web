@@ -64,15 +64,32 @@ nav {
 
 }
 
+/* General mobile navigation styles */
+.mobile-nav-container {
+  display: none; /* Hide the mobile navigation container by default */
+}
 
 .burger {
-  font-size: 2rem;
+  display: none; /* Hide the burger button by default on desktop */
   cursor: pointer;
-  color: white;
-  display: flex;
-  align-items: center;
-  height: 60px;
 }
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #003366;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #003366;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
 
 .burger:hover {
   background-color: rgba(255,255,255,0.3);
@@ -84,11 +101,63 @@ nav {
   width: 100%;
 }
 
+.mobile-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 60%; /* Adjust as needed */
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(100%); /* Initially slide the menu off-screen */
+  transition: transform 0.5s ease-in;
+  z-index: 999;
+}
+.mobile-nav-menu.active {
+  transform: translateX(0%); /* Slide the menu into view */
+}
+
+/* Mobile-specific styles for the menu items */
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 5rem; /* Pushes the links down */
+}
+
+.mobile-nav-list li {
+  padding: 1rem 0;
+}
+
+.mobile-nav-list a {
+  text-decoration: none;
+  color: #003366;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .scroll-offset {
   height: 78px;
   margin-top: -120px;
 }
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Hide the desktop navigation bar on mobile */
+  }
 
+  .mobile-nav-container {
+    display: block; /* Show the mobile container */
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1000;
+  }
+
+  .burger {
+    display: block; /* Show the burger button on mobile */
+  }
+}
 
 .logo-bar {
   display: flex;
@@ -747,6 +816,10 @@ footer p {
   color: grey !important;
 }
 
+
+
+
+
 @media (max-width: 768px) {
   .burger {
     display: block;
@@ -773,6 +846,9 @@ footer p {
 header {
   padding: 3rem 1rem;
 }
+
+
+
 
 .header-text {
   position: relative;
@@ -855,40 +931,54 @@ header {
 </head>
 <!-- Sticky Header Container -->
 <div class="sticky-header">
-<div class="logo-bar">
-  <div class="logo-center-combined">
-    <div class="logo-center">
-      <img src="images/logo.svg" alt="Logo">
+
+  <div class="logo-bar">
+    <div class="logo-center-combined">
+      <div class="logo-center">
+        <img src="images/logo.svg" alt="Logo">
+      </div>
+      <div class="logo-left">
+        <h1>Elektroanlagen</h1>
+        <h2>Klemkow & Lutzenberger</h2>
+        <p>Inh. Bernd Lutzenberger<br>Innungsbetrieb</p>
+      </div>
     </div>
-    <div class="logo-left">
-      <h1>ELEKTROANLAGEN</h1>
-      <h2>Klemkow & Lutzenberger</h2>
-      <p>Inh. Bernd Lutzenberger<br>Innungsbetrieb</p>
-    </div>
- 
-
-
-
-  </div>
     <div class="logo-right">
-    <p>📞 0385 / 123 456</p>
-    <p><a href="#kontakt">✉️ info@elektro-klemkow.de</a></p>
+      <p>📞 0385 / 123 456</p>
+      <p><a href="#kontakt">✉️ info@elektro-klemkow.de</a></p>
+    </div>
+    <div class="logo-right-spacer"></div>
   </div>
-
-  <div class="logo-right-spacer"></div>
-</div>
-
 
   <nav class="main-nav">
-    <div class="nav-links" id="navLinks">
-      <a href="#startseite">Startseite</a>
-      <a href="#leistungen">Leistungen</a>
-   <a href="#referenzen">Referenzen</a>
-      <a href="#ueber-uns">Über uns</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#aktuelles">Aktuelles</a>
-    </div>
+    <ul>
+      <li><a href="#startseite-offset">Startseite</a></li>
+      <li><a href="#leistungen-offset">Leistungen</a></li>
+      <li><a href="#referenzen-offset">Referenzen</a></li>
+      <li><a href="#ueber-uns-offset">Über uns</a></li>
+      <li><a href="#kontakt-offset">Kontakt</a></li>
+      <li><a href="#aktuelles-offset">Aktuelles</a></li>
+    </ul>
   </nav>
+
+  <div class="mobile-nav-container">
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <div class="mobile-nav-menu">
+      <ul class="mobile-nav-list">
+        <li><a href="#startseite-offset">Startseite</a></li>
+        <li><a href="#leistungen-offset">Leistungen</a></li>
+        <li><a href="#referenzen-offset">Referenzen</a></li>
+        <li><a href="#ueber-uns-offset">Über uns</a></li>
+        <li><a href="#kontakt-offset">Kontakt</a></li>
+        <li><a href="#aktuelles-offset">Aktuelles</a></li>
+      </ul>
+    </div>
+  </div>
+
 </div>
 
 <body>
