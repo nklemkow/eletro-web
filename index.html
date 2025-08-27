@@ -19,8 +19,6 @@
     }
 
     body {
-
-
       margin: 0;
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       font-size: 16px;
@@ -170,7 +168,6 @@
   margin: 5px;
   transition: all 0.3s ease;
 }
-/* Mobile nav menu */
 .mobile-nav-menu {
   position: fixed;
   top: 0;
@@ -192,7 +189,7 @@
 .mobile-nav-list {
   list-style: none;
   padding: 0;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 .mobile-nav-list li {
   padding: 1rem 0;
@@ -206,21 +203,20 @@
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-  .logo-bar {
-    padding: 1rem;
-  }
-  
   .main-nav {
     display: none;
   }
-  
   .burger {
     display: block;
+  }
+  .logo-bar {
+    flex-direction: column;
+    align-items: center;
   }
 }
 /* Hero section */
 header {
-  background-image: url('images/header-bg.jpg');
+  background-image: url('https://placehold.co/1200x600/003366/white?text=Elektroanlagen');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -270,8 +266,6 @@ header::after {
   margin-bottom: 0.5rem;
     line-height: 1.3;
 }
-
-
 
 .header-text p {
   font-size: 1rem;
@@ -370,12 +364,15 @@ margin: auto;
 
 .leistung {
   background-color: #f9f9f9;
-  padding: 2rem;
+  padding: 0;
   border-radius: 6px;
   width: 280px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .leistung:hover {
   transform: translateY(-5px);
@@ -397,7 +394,7 @@ margin: auto;
   color: #555;
 }
 
-/* Responsive */
+/* Zentrierte Leistungsblöcke für Mobile */
 @media (max-width: 768px) {
   .leistungen-grid {
     flex-direction: column;
@@ -405,6 +402,10 @@ margin: auto;
   }
   .leistung {
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
 /* Referenzen Section */
@@ -453,7 +454,6 @@ margin: auto;
 }
 /* Kontakt Section */
 #kontakt {
-
   padding: 6rem 2rem;
   background-color: #fff;
   text-align: center;
@@ -559,7 +559,6 @@ margin: auto;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   max-width: 800px;
-
   text-align: center;
 }
 
@@ -570,7 +569,6 @@ margin: auto;
   text-align: center;
   position: relative;
     line-height: 1.3;
-
 }
 #aktuelles h2::after {
   content: "";
@@ -635,24 +633,23 @@ footer a:hover {
   font-size: 0.9rem;
   color: #cccccc;
 }
- 
-
   </style>
 </head>
 <body>
-<!-- Mobile Navigation Button (fixed position) -->
-<div class="burger" aria-label="Menü öffnen/schließen" role="button" tabindex="0">
-  <div class="line1"></div>
-  <div class="line2"></div>
-  <div class="line3"></div>
-</div>
+
+  <!-- Mobile Navigation Button (fixed position) -->
+  <div class="burger" aria-label="Menü öffnen/schließen" role="button" tabindex="0">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
+  </div>
 
   <!-- Sticky Header -->
   <div class="sticky-header">
     <div class="logo-bar">
       <div class="logo-center-combined">
         <div class="logo-center">
-          <img src="images/logo.svg" alt="Klemkow & Lutzenberger Logo">
+          <img src="https://placehold.co/80x80/003366/white?text=KL" alt="Klemkow & Lutzenberger Logo">
         </div>
         <div class="logo-left">
           <h1>Elektroanlagen</h1>
@@ -660,309 +657,312 @@ footer a:hover {
           <p>Inh. Bernd Lutzenberger<br>Innungsbetrieb</p>
         </div>
       </div>
-<div class="logo-right">
-  <p>
-    📞 0385 / 123 456 
-    <span class="separator">|</span> 
-    <a href="#kontakt">✉️ info@elektro-klemkow.de</a>
-  </p>
-</div>
+      <div class="logo-right">
+        <p>
+          📞 0385 / 123 456 
+          <span class="separator">|</span> 
+          <a href="#kontakt">✉️ info@elektro-klemkow.de</a>
+        </p>
+      </div>
     </div>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
       <ul>
         <li><a href="#startseite">Startseite</a></li>
-		        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
         <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#referenzen">Referenzen</a></li>
-
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="#aktuelles">Aktuelles</a></li>
       </ul>
     </nav>
 
-  <!-- Mobile Navigation Menu (bleibt innerhalb des sticky-headers) -->
-  <div class="mobile-nav-menu">
-    <ul class="mobile-nav-list">
-      <li><a href="#startseite">Startseite</a></li>
-      <li><a href="#ueber-uns">Über uns</a></li>
-      <li><a href="#leistungen">Leistungen</a></li>    
-      <li><a href="#referenzen">Referenzen</a></li>        
-      <li><a href="#kontakt">Kontakt</a></li>
-      <li><a href="#aktuelles">Aktuelles</a></li>
-    </ul>
-  </div>
-</div>
-  </div>
-<!-- Hero/Header Section -->
-<header id="startseite">
-  <div class="header-text">
-    <h1>Elektroanlagen</h1>
-    <h2>Klemkow & Lutzenberger</h2>
-    <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
-    <div class="trenner"></div>
-    <div class="cta-box">
-      <a href="#kontakt" class="btn">Unverbindlich Anfragen</a>
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+      <ul class="mobile-nav-list">
+        <li><a href="#startseite">Startseite</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#leistungen">Leistungen</a></li>    
+        <li><a href="#referenzen">Referenzen</a></li>        
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#aktuelles">Aktuelles</a></li>
+      </ul>
     </div>
   </div>
-</header>
-<!-- Über uns -->
-<section id="ueber-uns">
-  <h2>Über uns</h2>
-  <div class="ueber-uns-content">
-    <img src="images/team.jpg" alt="Unser Team" class="ueber-uns-bild">
-    <p>
-      Das Unternehmen Klemkow &amp; Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister
-      Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von
-      Rainer Klemkow.<br><br>
 
-      Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er
-      versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.<br><br>
-
-      Seit nunmehr 14 Jahren führen die beiden Firmeninhaber das Unternehmen erfolgreich weiter. Den
-      ständig wachsenden Herausforderungen und den hohen Qualitätsansprüchen der Kunden konnte das
-      Unternehmen stets gerecht werden.<br><br>
-
-      Spezialisierungen und Weiterbildungen brachten einen klaren Vorsprung im
-      Preis-Leistungs-Verhältnis – ohne Einschränkungen bei Qualität und Sicherheit.<br><br>
-
-      Regelmäßige Schulungen und Informationsworkshops mit Materialherstellern und Anlagenlieferanten
-      ermöglichen es, stets neueste und zuverlässige Technik einzusetzen und auf die Ansprüche der
-      Kunden zugeschnittene Produkte zu empfehlen.<br><br>
-
-      Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
-    </p>
-    <p>
-      Qualität, Sicherheit und persönliche Beratung stehen bei uns im Mittelpunkt. Wir freuen uns
-      darauf, auch Ihr Projekt zu begleiten.
-    </p>
-  </div>
-</section>
-<!-- Leistungen -->
-<section id="leistungen">
-  <h2>Unsere Leistungen</h2>
-  <div class="leistungen-grid">
-
-    <div class="leistung">
-      <i class="fas fa-bolt" aria-hidden="true"></i>
-      <h3>Elektroinstallationen</h3>
-      <p>Planung und Ausführung von Elektroanlagen im privaten und gewerblichen Bereich.</p>
+  <!-- Hero/Header Section -->
+  <header id="startseite">
+    <div class="header-text">
+      <h1>Elektroanlagen</h1>
+      <h2>Klemkow & Lutzenberger</h2>
+      <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
+      <div class="trenner"></div>
+      <div class="cta-box">
+        <a href="#kontakt" class="btn">Unverbindlich Anfragen</a>
+      </div>
     </div>
+  </header>
 
-    <div class="leistung">
-      <i class="fas fa-tools" aria-hidden="true"></i>
-      <h3>Alt- &amp; Neubau</h3>
-      <p>Installation von Licht- und Kraftanlagen im Neu- und Altbau.</p>
+  <!-- Über uns -->
+  <section id="ueber-uns">
+    <h2>Über uns</h2>
+    <div class="ueber-uns-content">
+      <img src="https://placehold.co/200x200/003366/white?text=Team" alt="Unser Team" class="ueber-uns-bild">
+      <p>
+        Das Unternehmen Klemkow &amp; Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister
+        Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von
+        Rainer Klemkow.<br><br>
+
+        Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er
+        versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.<br><br>
+
+        Seit nunmehr 14 Jahren führen die beiden Firmeninhaber das Unternehmen erfolgreich weiter. Den
+        ständig wachsenden Herausforderungen und den hohen Qualitätsansprüchen der Kunden konnte das
+        Unternehmen stets gerecht werden.<br><br>
+
+        Spezialisierungen und Weiterbildungen brachten einen klaren Vorsprung im
+        Preis-Leistungs-Verhältnis – ohne Einschränkungen bei Qualität und Sicherheit.<br><br>
+
+        Regelmäßige Schulungen und Informationsworkshops mit Materialherstellern und Anlagenlieferanten
+        ermöglichen es, stets neueste und zuverlässige Technik einzusetzen und auf die Ansprüche der
+        Kunden zugeschnittene Produkte zu empfehlen.<br><br>
+
+        Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
+      </p>
+      <p>
+        Qualität, Sicherheit und persönliche Beratung stehen bei uns im Mittelpunkt. Wir freuen uns
+        darauf, auch Ihr Projekt zu begleiten.
+      </p>
     </div>
+  </section>
 
-    <div class="leistung">
-      <i class="fas fa-wrench" aria-hidden="true"></i>
-      <h3>Wartung &amp; Reparatur</h3>
-      <p>Instandhaltung bestehender Anlagen inkl. E-Check nach VDE.</p>
-    </div>
-
-    <div class="leistung">
-      <i class="fas fa-network-wired" aria-hidden="true"></i>
-      <h3>Netzwerktechnik</h3>
-      <p>Montage von Datennetzwerken und Kommunikationssystemen.</p>
-    </div>
-
-    <div class="leistung">
-      <i class="fas fa-shield-alt" aria-hidden="true"></i>
-      <h3>Sicherheitssysteme</h3>
-      <p>Alarmanlagen, Videoüberwachung und Türsprechanlagen.</p>
-    </div>
-
-    <div class="leistung">
-      <i class="fas fa-satellite-dish" aria-hidden="true"></i>
-      <h3>Antennenanlagen</h3>
-      <p>Installation und Wartung von Satelliten- und Empfangsanlagen.</p>
-    </div>
-
-  </div>
-</section>
-<!-- Referenzen -->
-<section id="referenzen">
-  <h2>Referenzen</h2>
-  <ul class="referenzen-list">
-    <li>
-      <strong>Komplexsanierung im Wohnungsbau</strong><br>
-      Adolf-Wilbrandt-Str. und Wassidlow-Str., Schwerin<br>
-      <em>Auftraggeber:</em> Neue Lübecker, Norddeutsche Wohnungsbaugenossenschaft e.G.
-    </li>
-
-    <li>
-      <strong>Komplexsanierung im Wohnungsbau</strong><br>
-      Theodor-Fontane-Str., Hagenow<br>
-      <em>Auftraggeber:</em> Hagenower Wohnungsbaugesellschaft
-    </li>
-
-    <li>
-      <strong>Stabsgebäude Bundeswehrkaserne</strong><br>
-      Hagenow<br>
-      <em>Auftraggeber:</em> Bundeswehr Hagenow
-    </li>
-
-    <li>
-      <strong>Teilsanierung von Wohnungsaufgängen</strong><br>
-      Beckerstraße und Sandstraße, Schwerin<br>
-      <em>Auftraggeber:</em> SWV
-    </li>
-
-    <li><strong>Nordkorn Baumarkt</strong><br>Schwerin</li>
-
-    <li>
-      <strong>Altbausanierung Altstadt</strong><br>
-      Goethe-Str. 76, Wittenburger Str. 73/79/85, R.-Breitscheid-Str. 26,<br>
-      mehrere Häuser auf dem Obotritenring, u.a. Nr. 231 – das Haus des Kölner Bauingenieurs und Architekten
-    </li>
-
-    <li><strong>Neuinstallation von Eigenheimen</strong><br>Diverse Bauten in und um Schwerin</li>
-
-    <li>
-      <strong>Villa am Franzosenweg</strong><br>
-      Franzosenweg 10, Schwerin<br>
-      <em>Auftraggeber:</em> Familie Godescheit
-    </li>
-
-    <li>
-      <strong>Weitere Referenzen:</strong><br>
-      Neue Lübecker Baugenossenschaft, Stadtwerke Schwerin
-    </li>
-  </ul>
-
-  <div class="referenzen-cta">
-    <button class="btn">Weitere Projekte ansehen</button>
-  </div>
-</section>
-<!-- Kontakt -->
-<section id="kontakt">
-  <h2>Kontakt</h2>
-  <div class="kontakt-box">
-    
-    <!-- Left side: contact details + form -->
-    <div class="kontakt-links">
-      <div class="kontakt-info">
-        <p>
-          <strong>Klemkow &amp; Lutzenberger Elektroanlagen GbR</strong><br>
-          Neumühler Str. 11<br>
-          19057 Schwerin
-        </p>
-
-        <p>
-          <strong>Telefon / Fax:</strong> 0385 - 71 93 66<br>
-          <strong>E-Mail:</strong> 
-          <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
-          <strong>Internet:</strong> 
-          <a href="https://www.schwerin-elektro.de" target="_blank" rel="noopener">
-            www.schwerin-elektro.de
-          </a>
-        </p>
-
-        <p><strong>Firmengründer:</strong> Uwe Klemkow und Bernd Lutzenberger</p>
+  <!-- Leistungen -->
+  <section id="leistungen">
+    <h2>Unsere Leistungen</h2>
+    <div class="leistungen-grid">
+      <div class="leistung">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <h3>Elektroinstallationen</h3>
+        <p>Planung und Ausführung von Elektroanlagen im privaten und gewerblichen Bereich.</p>
       </div>
 
-      <!-- Contact form -->
-      <form action="https://formspree.io/f/DEIN-FORMULAR-ID" method="POST" class="kontakt-formular">
-        <label for="name">Name:</label>
-        <input id="name" type="text" name="name" required>
+      <div class="leistung">
+        <i class="fas fa-tools" aria-hidden="true"></i>
+        <h3>Alt- &amp; Neubau</h3>
+        <p>Installation von Licht- und Kraftanlagen im Neu- und Altbau.</p>
+      </div>
 
-        <label for="email">E-Mail:</label>
-        <input id="email" type="email" name="email" required>
+      <div class="leistung">
+        <i class="fas fa-wrench" aria-hidden="true"></i>
+        <h3>Wartung &amp; Reparatur</h3>
+        <p>Instandhaltung bestehender Anlagen inkl. E-Check nach VDE.</p>
+      </div>
 
-        <label for="betreff">Betreff:</label>
-        <input id="betreff" type="text" name="betreff">
+      <div class="leistung">
+        <i class="fas fa-network-wired" aria-hidden="true"></i>
+        <h3>Netzwerktechnik</h3>
+        <p>Montage von Datennetzwerken und Kommunikationssystemen.</p>
+      </div>
 
-        <label for="nachricht">Nachricht:</label>
-        <textarea id="nachricht" name="nachricht" required></textarea>
+      <div class="leistung">
+        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+        <h3>Sicherheitssysteme</h3>
+        <p>Alarmanlagen, Videoüberwachung und Türsprechanlagen.</p>
+      </div>
 
-        <button type="submit" class="btn">Absenden</button>
-      </form>
+      <div class="leistung">
+        <i class="fas fa-satellite-dish" aria-hidden="true"></i>
+        <h3>Antennenanlagen</h3>
+        <p>Installation und Wartung von Satelliten- und Empfangsanlagen.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Right side: embedded Google Map -->
-    <div class="kontakt-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11410.985112464286!2d11.366688983269436!3d53.62927150270681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47add98039537fd5%3A0x442b4a6de42227e6!2sKlemkow%20%26%20Lutzenberger%20Elektroanlagen%20GbR!5e1!3m2!1sde!2sde!4v1756202846179!5m2!1sde!2sde"
-        width="100%" height="250" style="border:0;" 
-        allowfullscreen="" loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
+  <!-- Referenzen -->
+  <section id="referenzen">
+    <h2>Referenzen</h2>
+    <ul class="referenzen-list">
+      <li>
+        <strong>Komplexsanierung im Wohnungsbau</strong><br>
+        Adolf-Wilbrandt-Str. und Wassidlow-Str., Schwerin<br>
+        <em>Auftraggeber:</em> Neue Lübecker, Norddeutsche Wohnungsbaugenossenschaft e.G.
+      </li>
 
-  </div>
-</section>
-<!-- Aktuelles -->
-<section id="aktuelles">
-  <h2>Aktuelles</h2>
-  <div class="aktuelles-content">
-    <p>Hier finden Sie aktuelle Informationen, Projekte und Neuigkeiten rund um unser Unternehmen.</p>
+      <li>
+        <strong>Komplexsanierung im Wohnungsbau</strong><br>
+        Theodor-Fontane-Str., Hagenow<br>
+        <em>Auftraggeber:</em> Hagenower Wohnungsbaugesellschaft
+      </li>
 
-    <ul>
-      <li>Neue Photovoltaik-Anlage in Betrieb genommen – August 2025</li>
-      <li>Teilnahme an der Schweriner Energiemesse – Juli 2025</li>
-      <li>Ausbildungsplätze für 2026 jetzt verfügbar</li>
+      <li>
+        <strong>Stabsgebäude Bundeswehrkaserne</strong><br>
+        Hagenow<br>
+        <em>Auftraggeber:</em> Bundeswehr Hagenow
+      </li>
+
+      <li>
+        <strong>Teilsanierung von Wohnungsaufgängen</strong><br>
+        Beckerstraße und Sandstraße, Schwerin<br>
+        <em>Auftraggeber:</em> SWV
+      </li>
+
+      <li><strong>Nordkorn Baumarkt</strong><br>Schwerin</li>
+
+      <li>
+        <strong>Altbausanierung Altstadt</strong><br>
+        Goethe-Str. 76, Wittenburger Str. 73/79/85, R.-Breitscheid-Str. 26,<br>
+        mehrere Häuser auf dem Obotritenring, u.a. Nr. 231 – das Haus des Kölner Bauingenieurs und Architekten
+      </li>
+
+      <li><strong>Neuinstallation von Eigenheimen</strong><br>Diverse Bauten in und um Schwerin</li>
+
+      <li>
+        <strong>Villa am Franzosenweg</strong><br>
+        Franzosenweg 10, Schwerin<br>
+        <em>Auftraggeber:</em> Familie Godescheit
+      </li>
+
+      <li>
+        <strong>Weitere Referenzen:</strong><br>
+        Neue Lübecker Baugenossenschaft, Stadtwerke Schwerin
+      </li>
     </ul>
-  </div>
-</section>
-<!-- Footer -->
-<footer>
-  <h3>Impressum</h3>
-  <p class="footer-text">
-    © 2025 Klemkow &amp; Lutzenberger Elektroanlagen GbR<br>
-    Neumühler Str. 11<br>
-    19057 Schwerin<br>
-    Telefon / Fax: 0385 - 71 93 66<br>
-    E-Mail: <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
-    <a href="#kontakt">→ Kontaktformular nutzen</a><br>
-    Internet: <a href="https://www.schwerin-elektro.de" target="_blank" rel="noopener">
-      www.schwerin-elektro.de
-    </a><br>
-    Firmengründer: Uwe Klemkow und Bernd Lutzenberger
-  </p>
 
-  <h4>Haftungshinweis</h4>
-  <p class="footer-note">
-    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer
-    Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-  </p>
-</footer>
-<script>
-// Elements
-const burger = document.querySelector('.burger');
-const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+    <div class="referenzen-cta">
+      <button class="btn">Weitere Projekte ansehen</button>
+    </div>
+  </section>
 
-// Toggle menu on burger click
-burger.addEventListener('click', (event) => {
-  mobileNavMenu.classList.toggle('active');
-  event.stopPropagation();
-});
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <div class="kontakt-box">
+      
+      <!-- Left side: contact details + form -->
+      <div class="kontakt-links">
+        <div class="kontakt-info">
+          <p>
+            <strong>Klemkow &amp; Lutzenberger Elektroanlagen GbR</strong><br>
+            Neumühler Str. 11<br>
+            19057 Schwerin
+          </p>
 
-// Close menu when clicking a link
-mobileLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    mobileNavMenu.classList.remove('active');
-  });
-});
+          <p>
+            <strong>Telefon / Fax:</strong> 0385 - 71 93 66<br>
+            <strong>E-Mail:</strong> 
+            <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
+            <strong>Internet:</strong> 
+            <a href="https://www.schwerin-elektro.de" target="_blank" rel="noopener">
+              www.schwerin-elektro.de
+            </a>
+          </p>
 
-// Close menu when clicking outside
-document.addEventListener('click', (event) => {
-  const isClickInsideMenu = mobileNavMenu.contains(event.target);
-  const isClickOnBurger = burger.contains(event.target);
+          <p><strong>Firmengründer:</strong> Uwe Klemkow und Bernd Lutzenberger</p>
+        </div>
 
-  if (!isClickInsideMenu && !isClickOnBurger) {
-    mobileNavMenu.classList.remove('active');
-  }
-});
+        <!-- Contact form -->
+        <form action="https://formspree.io/f/DEIN-FORMULAR-ID" method="POST" class="kontakt-formular">
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="name" required>
 
-// Close with ESC key
-document.addEventListener('keydown', (event) => {
-  if (event.key === "Escape") {
-    mobileNavMenu.classList.remove('active');
-  }
-});
-</script>
+          <label for="email">E-Mail:</label>
+          <input id="email" type="email" name="email" required>
+
+          <label for="betreff">Betreff:</label>
+          <input id="betreff" type="text" name="betreff">
+
+          <label for="nachricht">Nachricht:</label>
+          <textarea id="nachricht" name="nachricht" required></textarea>
+
+          <button type="submit" class="btn">Absenden</button>
+        </form>
+      </div>
+
+      <!-- Right side: embedded Google Map -->
+      <div class="kontakt-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11410.985112464286!2d11.366688983269436!3d53.62927150270681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47add98039537fd5%3A0x442b4a6de42227e6!2sKlemkow%20%26%20Lutzenberger%20Elektroanlagen%20GbR!5e1!3m2!1sde!2sde!4v1756202846179!5m2!1sde!2sde"
+          width="100%" height="250" style="border:0;" 
+          allowfullscreen="" loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aktuelles -->
+  <section id="aktuelles">
+    <h2>Aktuelles</h2>
+    <div class="aktuelles-content">
+      <p>Hier finden Sie aktuelle Informationen, Projekte und Neuigkeiten rund um unser Unternehmen.</p>
+
+      <ul>
+        <li>Neue Photovoltaik-Anlage in Betrieb genommen – August 2025</li>
+        <li>Teilnahme an der Schweriner Energiemesse – Juli 2025</li>
+        <li>Ausbildungsplätze für 2026 jetzt verfügbar</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h3>Impressum</h3>
+    <p class="footer-text">
+      © 2025 Klemkow &amp; Lutzenberger Elektroanlagen GbR<br>
+      Neumühler Str. 11<br>
+      19057 Schwerin<br>
+      Telefon / Fax: 0385 - 71 93 66<br>
+      E-Mail: <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
+      <a href="#kontakt">→ Kontaktformular nutzen</a><br>
+      Internet: <a href="https://www.schwerin-elektro.de" target="_blank" rel="noopener">
+        www.schwerin-elektro.de
+      </a><br>
+      Firmengründer: Uwe Klemkow und Bernd Lutzenberger
+    </p>
+
+    <h4>Haftungshinweis</h4>
+    <p class="footer-note">
+      Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer
+      Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+    </p>
+  </footer>
+
+  <script>
+    // Elements
+    const burger = document.querySelector('.burger');
+    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+
+    // Toggle menu on burger click
+    burger.addEventListener('click', (event) => {
+      mobileNavMenu.classList.toggle('active');
+      event.stopPropagation(); // prevent immediate close
+    });
+
+    // Close menu when clicking a link
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavMenu.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const isClickInsideMenu = mobileNavMenu.contains(event.target);
+      const isClickOnBurger = burger.contains(event.target);
+
+      if (!isClickInsideMenu && !isClickOnBurger) {
+        mobileNavMenu.classList.remove('active');
+      }
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === "Escape") {
+        mobileNavMenu.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
