@@ -64,10 +64,7 @@ nav {
 
 }
 
-/* General mobile navigation styles */
-.mobile-nav-container {
-  display: none; /* Hide the mobile navigation container by default */
-}
+
 
 .burger {
   display: none; /* Hide the burger button by default on desktop */
@@ -143,7 +140,7 @@ nav {
 }
 @media (max-width: 768px) {
   .main-nav {
-    display: none; /* Hide the desktop navigation bar on mobile */
+      display: none;
   }
 
   .mobile-nav-container {
@@ -161,90 +158,48 @@ nav {
 
 .logo-bar {
   display: flex;
-  justify-content: center; /* This will center the combined logo block */
+  justify-content: space-between;
   align-items: center;
-  position: relative; /* This is crucial for positioning the contact info block */
   background-color: white;
-  padding: 0.8rem 1.7rem;
+  padding: 1rem 2rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   gap: 1.5rem;
-  flex-wrap: wrap;
 }
+
 .logo-center-combined {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Or whatever gap you want between the logo and text */
+  gap: 1.5rem;
 }
 
-/* New CSS for the empty spacer block */
-.logo-left-spacer {
-  /* This block will take up a proportional amount of space, pushing content to the center */
-  flex-grow: 1; 
+.logo-left-spacer,
+.logo-right-spacer {
+  flex-grow: 1;
 }
 
+.logo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
 
-/* Optional: tighter spacing */
+.logo-bar img {
+  height: 80px; /* Make sure the logo image has a height */
+  display: block;
+}
+
 .logo-left h1,
 .logo-left h2,
 .logo-left p,
 .logo-right p {
   margin: 0.2rem 0;
-  font-size: 1rem;
-  color: #003366;
-}
-
-.logo-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* ← aligns content to the left */
-  text-align: left;        /* ← aligns text itself to the left */
-}
-
-
-.logo-right {
-  /* Position the contact info block absolutely to the far right */
-  position: absolute;
-  right: 2rem; /* Matches the padding of the parent container */
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Aligns the text to the right within its block */
-  text-align: right;
-}
-
-.logo-left-spacer {
-  flex-grow: 1;
-}
-.logo-bar h1 {
-  font-size: 1.1rem;
-  margin: 0;
-  color: #003366;
-}
-
-.logo-bar h2 {
-  font-size: .9rem;
-  margin: 0.2rem 0;
-  color: #000000;
-}
-
-.logo-bar p {
-  margin: 0.2rem 0;
   font-size: 0.95rem;
   color: #444;
 }
 
-.logo-bar h1,
-.logo-bar h2,
-.logo-bar p,
 .logo-right p {
-  font-size: 1rem; /* previously ~1rem */
-  margin: 0.0rem 0;
-}
-
-.logo-bar img {
-  height: 84px;
-  display: block;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
@@ -252,10 +207,10 @@ nav {
     flex-direction: column;
     align-items: center;
   }
-  .logo-right, .logo-left-spacer, .logo-right-spacer {
-    display: none;
-  
-  }
+.logo-left-spacer,
+.logo-right-spacer {
+  flex-grow: 1;
+}
 }
 
 
@@ -270,20 +225,25 @@ nav {
   text-decoration: underline;
 }
 
+
+
 /* Navigation bar */
 .main-nav {
   background-color: #003366;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
   padding: 0.5rem 0;
 }
 
-.nav-links a {
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.main-nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -291,10 +251,9 @@ nav {
   user-select: none;
 }
 
-.nav-links a:hover {
+.main-nav a:hover {
   color: #66ccff;
 }
-
 header {
   background-image: url('images/header-bg.jpg');
   background-size: cover;
@@ -823,9 +782,10 @@ footer p {
 @media (max-width: 768px) {
   .burger {
     display: block;
+	
   }
 
-  .nav-links {
+  .main-nav {
     display: none;
     flex-direction: column;
     background-color: #003366;
@@ -836,7 +796,7 @@ footer p {
     padding: 1rem;
   }
 
-  .nav-links.show {
+  .main-nav.show {
     display: flex;
   }
 }
@@ -893,8 +853,8 @@ header {
   object-fit: contain;
 }
 
-  .nav-links {
-    display: none;
+  .main-nav {
+ 
     flex-direction: column;
     background-color: #003366;
     position: absolute;
@@ -905,7 +865,7 @@ header {
     z-index: 1000;
   }
 
-  .nav-links.show {
+  .main-nav.show {
     display: flex;
   }
 
@@ -930,8 +890,8 @@ header {
   </style>
 </head>
 <!-- Sticky Header Container -->
+</head>
 <div class="sticky-header">
-
   <div class="logo-bar">
     <div class="logo-center-combined">
       <div class="logo-center">
@@ -947,7 +907,6 @@ header {
       <p>📞 0385 / 123 456</p>
       <p><a href="#kontakt">✉️ info@elektro-klemkow.de</a></p>
     </div>
-    <div class="logo-right-spacer"></div>
   </div>
 
   <nav class="main-nav">
@@ -978,15 +937,45 @@ header {
       </ul>
     </div>
   </div>
-
 </div>
+
+
 
 <body>
 
 <div id="startseite"></div>
 <!-- Sticky Header Container -->
 
+<script>
+  // Select all necessary elements from the HTML
+  const burger = document.querySelector('.burger');
+  const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
 
+  // Toggle the menu's 'active' class on burger click
+  burger.addEventListener('click', (event) => {
+    mobileNavMenu.classList.toggle('active');
+    event.stopPropagation(); // Prevents the document click event from firing immediately
+  });
+
+  // Close the menu when a link inside it is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNavMenu.classList.remove('active');
+    });
+  });
+
+  // Close the menu when a click happens outside the menu
+  document.addEventListener('click', (event) => {
+    // Check if the click target is NOT the burger or inside the menu
+    const isClickInsideMenu = mobileNavMenu.contains(event.target);
+    const isClickOnBurger = burger.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnBurger) {
+      mobileNavMenu.classList.remove('active');
+    }
+  });
+</script>
 
 
 
@@ -1198,35 +1187,6 @@ header {
     Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
   </p>
 </footer>
-<script>
-  // Select all necessary elements from the HTML
-  const burger = document.querySelector('.burger');
-  const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
 
-  // Toggle the menu's 'active' class on burger click
-  burger.addEventListener('click', (event) => {
-    mobileNavMenu.classList.toggle('active');
-    event.stopPropagation(); // Prevents the document click event from firing immediately
-  });
-
-  // Close the menu when a link inside it is clicked
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNavMenu.classList.remove('active');
-    });
-  });
-
-  // Close the menu when a click happens outside the menu
-  document.addEventListener('click', (event) => {
-    // Check if the click target is NOT the burger or inside the menu
-    const isClickInsideMenu = mobileNavMenu.contains(event.target);
-    const isClickOnBurger = burger.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnBurger) {
-      mobileNavMenu.classList.remove('active');
-    }
-  });
-</script>
 </body>
 </html>
