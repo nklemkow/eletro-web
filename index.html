@@ -8,47 +8,231 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 180px; /* Adjust this value as needed to match your sticky header's height */
+}
 
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+body {
+  margin: 0;
+   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #444;
+}
+
+h1, h2, h3 {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: #003366;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+p, li, label, input, textarea {
+  font-size: 1rem; /* entspricht 16px */
+  font-family: inherit;
+  color: #444;
+}
+
+input, textarea, button {
+  font-size: 1rem;
+  font-family: inherit;
+}
 
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
   background-color: #003366;
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px; /* ← exakt so hoch wie das Logo */
   padding: 0 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,6.4);
 }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
 
-   header {
-  background-image: url('images/header-bg.jpg'); /* Bildpfad anpassen */
+
+.nav-logo img {
+  height: 100%;
+  object-fit: contain;
+
+}
+
+
+.burger {
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.burger:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.scroll-offset {
+  height: 78px;
+  margin-top: -120px;
+}
+
+
+.logo-bar {
+  display: flex;
+  justify-content: center; /* This will center the combined logo block */
+  align-items: center;
+  position: relative; /* This is crucial for positioning the contact info block */
+  background-color: white;
+  padding: 0.8rem 1.7rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.logo-center-combined {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Or whatever gap you want between the logo and text */
+}
+
+/* New CSS for the empty spacer block */
+.logo-left-spacer {
+  /* This block will take up a proportional amount of space, pushing content to the center */
+  flex-grow: 1; 
+}
+
+
+/* Optional: tighter spacing */
+.logo-left h1,
+.logo-left h2,
+.logo-left p,
+.logo-right p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: #003366;
+}
+
+.logo-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* ← aligns content to the left */
+  text-align: left;        /* ← aligns text itself to the left */
+}
+
+
+.logo-right {
+  /* Position the contact info block absolutely to the far right */
+  position: absolute;
+  right: 2rem; /* Matches the padding of the parent container */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns the text to the right within its block */
+  text-align: right;
+}
+
+.logo-left-spacer {
+  flex-grow: 1;
+}
+.logo-bar h1 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #003366;
+}
+
+.logo-bar h2 {
+  font-size: .9rem;
+  margin: 0.2rem 0;
+  color: #000000;
+}
+
+.logo-bar p {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.logo-bar h1,
+.logo-bar h2,
+.logo-bar p,
+.logo-right p {
+  font-size: 1rem; /* previously ~1rem */
+  margin: 0.0rem 0;
+}
+
+.logo-bar img {
+  height: 84px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logo-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo-left-spacer, .logo-right-spacer {
+    display: none;
+  }
+}
+
+
+/* Contact link styling */
+.logo-right a {
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo-right a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation bar */
+.main-nav {
+  background-color: #003366;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.5rem 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.nav-links a:hover {
+  color: #66ccff;
+}
+
+header {
+  background-image: url('images/header-bg.jpg');
   background-size: cover;
   background-position: center;
-  color: white;
-  text-align: center;
-  padding: 5rem 2rem;
+  background-repeat: no-repeat;
   position: relative;
+  padding: 4rem 0rem;
+  color: white;
 }
 
 header::after {
@@ -56,219 +240,551 @@ header::after {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* statt 0.4 → weniger Abdunklung */
+  background: rgba(0, 0, 0, 0.3); /* subtle dark overlay */
   z-index: 0;
 }
 
 .header-text {
   position: relative;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.95); /* halbtransparentes Weiß */
+  background-color: rgba(255, 255, 255, 0.72); /* semi-transparent white */
+  padding: 0.5rem 0;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  max-width: 2220px;
+ 
+  margin: 0;
+  text-align: center;
+}
+
+
+
+
+.header-text h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #00007B;
+  border-bottom: 2px solid red;
   display: inline-block;
-  padding: 2rem 3rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.0rem;
+}
+
+.trenner {
+  width: 60px;
+  height: 2px;
+  background-color: #0077cc;
+  margin: 1rem auto;
+  border-radius: 1px;
+}
+
+.cta-box {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.header-text h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #605F27;
+  margin-bottom: 0.5rem;
+}
+
+.header-text p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: #0077cc;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+h1, h2, h3 {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+nav a,
+nav button {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 800px;
+ 
+	margin-left: auto;
+	margin-right: auto;
+  text-align: left;
+}
+
+section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #003366;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  position: relative;
+    margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #0077cc;
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+/* Leistungen */
+.leistungen-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+section h2, section h3 {
+  color: #003366;
+}
+
+section ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+section li {
+  margin-bottom: 0.5rem;
+}
+
+#leistungen {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+#leistungen h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #003366;
+}
+
+.leistungen-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.leistung {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 3px;
+  width: 280px;
+     scroll-margin-top: -120px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.leistung i {
+  font-size: 2rem;
+  color: #d00000;
+  margin-bottom: 1rem;
+}
+
+.leistung h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #003366;
+}
+
+.leistung p {
+  font-size: 1rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .leistungen-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leistung {
+    width: 90%;
+  }
+}
+
+
+/* Über uns */
+.ueber-uns-content {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.ueber-uns-bild {
+  float: right;
+  margin: 0 0 1rem 1.5rem;
+  width: 200px;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+@media (max-width: 768px) {
+  .ueber-uns-bild {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem auto;
+  }
+}
+
+/* Abschnitt: Über uns & Referenzen */
+#ueber-uns,
+#referenzen {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+#ueber-uns p,
+#referenzen p {
+  color: #444;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+/* Referenzen */
+.referenzen-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#kontakt h2,
+#leistungen h2,
+#ueber-uns h2,
+#referenzen h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 3rem;
   text-align: center;
   color: #003366;
 }
 
-.header-text h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 3rem;
-  color: #d00000;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.referenz {
+  width: 280px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
 }
 
-.header-text h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  color: #003366;
-  margin-bottom: 1rem;
+.referenz img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.header-text p {
+.referenz p {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Kontakt */
+/* Kontaktbereich */
+/* Kontaktbereich */
+
+#kontakt {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+
+/* Kontaktblock mit Karte */
+.kontakt-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.kontakt-links {
+  flex: 1 1 600px;
+}
+
+/* Kontaktdaten */
+.kontakt-info {
+   flex: 1 1 100%;
   font-size: 1.1rem;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-  color: #333;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: #e53935;
-  color: white;
-  padding: 0.7rem 1.5rem;
+.kontakt-info a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.kontakt-info a:hover {
+  text-decoration: underline;
+}
+
+/* Eingebettete Karte */
+.kontakt-map {
+  flex: 0 0 250px;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Kontaktformular */
+.kontakt-formular {
+  max-width: 100%;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0;
+  background-color: transparent;
   border: none;
+  box-shadow: none;
+}
+
+.kontakt-formular label {
+  text-align: left;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #003366;
+  font-size: 0.95rem;
+}
+
+.kontakt-formular input,
+.kontakt-formular textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #0077cc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.kontakt-formular textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.kontakt-formular button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #002244;
+.kontakt-formular button:hover {
+  background-color: #005fa3;
+}
+
+/* Mobiloptimierung */
+@media (max-width: 768px) {
+  .kontakt-box {
+    flex-direction: column;
+    position: static;
+  }
+
+  .kontakt-map {
+    position: static;
+    width: 100%;
+    height: 200px;
+    margin-top: 1rem;
+  }
+
+  .kontakt-formular {
+    max-width: 100%;
+  }
+  
+  .kontakt-formular {
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
+
+/* Aktuelles */
+#aktuelles {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#aktuelles h2 {
+  font-size: 2rem;
+  margin-bottom: 6rem;
+   margin-top: 0;
+  color: #003366;
+  text-align: center;
+  position: relative;
+}
+
+#aktuelles h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #0077cc;
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+.aktuelles-content {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.aktuelles-content ul {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+}
+
+.aktuelles-content li {
+  margin-bottom: 0.8rem;
+}
+
+footer {
+  background-color: #003366;
+  color: white !important;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.footer-text {
+  color: white !important;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 
 
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background-color: white;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      scroll-margin-top: 80px;
-    }
 
-    #referenzen ul li {
-      margin-bottom: 1rem;
-    }
+.footer-content a {
+  color: white;
+  text-decoration: underline;
+}
 
-    footer {
-      background-color: #003366;
-      color: white;
-      padding: 2rem;
-      font-size: 0.9rem;
-      text-align: center;
-    }
+footer a:link {
+  color: white;
+  text-decoration: underline;
+}
 
-    footer a {
-      color: #e53935;
-      text-decoration: none;
-    }
+footer a:visited {
+  color: white;
+  text-decoration: underline;
+}
 
-    footer h3, footer h4 {
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-    }
+footer a:hover {
+  color: #66ccff;
+  text-decoration: none;
+     font-weight: bold;
+}
+
+footer a:active {
+  color: #66ccff;
+  text-decoration: none;
+ 
+}
+footer p {
+  color: grey !important;
+}
 
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: stretch;
+  .burger {
+    display: block;
   }
 
   .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 1rem;
+    background-color: #003366;
     position: absolute;
     top: 60px;
     right: 0;
     width: 100%;
-    background-color: #003366;
-    display: none;
+    padding: 1rem;
   }
 
   .nav-links.show {
     display: flex;
   }
-  
+}
+
+@media (max-width: 768px) {
   header {
+header {
   padding: 3rem 1rem;
 }
 
 .header-text {
-  padding: 1.5rem 2rem;
-  width: 90%;
-  max-width: 400px;
-}
-}
-	
-
-
-.about-flow {
-  overflow: hidden;
-}
-
-.about-float {
-  float: right;
-  width: 300px;
-  max-width: 100%;
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-@media (max-width: 768px) {
-  .about-float {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem auto;
-    width: 100%;
-  }
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+  padding: 2rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
 }
 
-
-
-.about-image {
-  grid-area: image;
-}
-
-
-.about-image img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Responsive Anpassung */
-@media (max-width: 768px) {
-  .about-flex,
-  .about-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-image img {
-    max-width: 100%;
-  }
-  }
-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #003366;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 0;
-  height: auto;
-}
-
-
-
-.nav-logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 60px;
-  width: 60px;
-  object-fit: contain;
-  margin: 0;
-  padding: 0;
-  display: block;
-}
-.nav-logo img {
-  height: 60px;
-  object-fit: contain;
-}
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.burger:hover {
-  background-color: rgba(255,255,255,0.3);
-}
-
-@media (max-width: 768px) {
 .nav-header {
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -276,56 +792,16 @@ nav {
   height: 60px;
   padding: 0 1rem;
 }
+
 .burger {
   order: 1;
-  margin-left: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   padding-left: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
+  margin-left: 0;
 }
-
-.nav-links {
-    display: none; /* initial versteckt */
-    flex-direction: column;
-    gap: 0.5rem;
-    background-color: #003366;
-    padding: 1rem;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  .nav-links.show {
-    display: flex;
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row; /* default direction */
-  padding: 0 1rem;
-  height: 60px;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .nav-header {
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    padding: 0 1rem;
-  }
-
-  .burger {
-    order: 1;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-    display: flex;
-    align-items: center;
-    height: 60px;
-  }
-
 
 .nav-logo {
   order: 2;
@@ -340,36 +816,87 @@ nav {
   object-fit: contain;
 }
 
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #003366;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+  }
 
-  
+  .nav-links.show {
+    display: flex;
+  }
+
+  .leistungen-grid,
+  .referenzen-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .referenz {
+    width: 90%;
+  }
+  html {
+  scroll-behavior: smooth;
 }
-#startseite {
-  height: 0;
-  margin: 0;
-  padding: 0;
+
+}
+
+
 }
 
   </style>
 </head>
-<body>
-<div id="startseite"></div>
-
-<nav>
-  <div class="nav-header">
-    <div class="burger" onclick="toggleMenu()">☰</div>
-    <div class="nav-logo">
-      <img src="images/logo.png" alt="Logo">
+<!-- Sticky Header Container -->
+<div class="sticky-header">
+<div class="logo-bar">
+  <div class="logo-center-combined">
+    <div class="logo-center">
+      <img src="images/logo.svg" alt="Logo">
     </div>
+    <div class="logo-left">
+      <h1>ELEKTROANLAGEN</h1>
+      <h2>Klemkow & Lutzenberger</h2>
+      <p>Inh. Bernd Lutzenberger<br>Innungsbetrieb</p>
+    </div>
+ 
+
+
+
+  </div>
+    <div class="logo-right">
+    <p>📞 0385 / 123 456</p>
+    <p><a href="#kontakt">✉️ info@elektro-klemkow.de</a></p>
+  </div>
+
+  <div class="logo-right-spacer"></div>
+</div>
+
+
+  <nav class="main-nav">
     <div class="nav-links" id="navLinks">
       <a href="#startseite">Startseite</a>
       <a href="#leistungen">Leistungen</a>
-      <a href="#referenzen">Referenzen</a>
+   <a href="#referenzen">Referenzen</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#aktuelles">Aktuelles</a>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+
+<body>
+
+<div id="startseite"></div>
+<!-- Sticky Header Container -->
+
+
+
 
 
 
@@ -389,89 +916,25 @@ nav {
   });
 </script>
 
-
 <header>
   <div class="header-text">
     <h1>Elektroanlagen</h1>
     <h2>Klemkow & Lutzenberger</h2>
     <p>Für die Sicherheit Ihrer elektrischen Anlagen</p>
-    <button class="btn">Unverbindlich Anfragen</button>
+    <div class="trenner"></div>
+    <div class="cta-box">
+      <a href="#kontakt" class="btn">Unverbindlich Anfragen</a>
+    </div>
   </div>
 </header>
 
-<section id="leistungen">
-  <h2>Unsere Leistungen</h2>
-  <p>
-    
-    Wir errichten für Sie Elektroanlagen im privaten und gewerblichen Bereich.<br><br>
-    Unser Leistungsspektrum umfasst:
-    <ul>
-      <li><i class="fas fa-drafting-compass" style="margin-right: 8px;"></i> Planung von Elektroanlagen und Erstellung von Kostenangaben</li>
-      <li><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Fach- und termingerechte Ausführung der Arbeiten</li>
-      <li><i class="fas fa-file-alt" style="margin-right: 8px;"></i> Abschließende Dokumentation der Projekte</li>
-      <li><i class="fas fa-boxes" style="margin-right: 8px;"></i> Unterstützung bei Materialbeschaffung</li>
-    </ul>
-  </p>
-
-  <p><strong>Technische Leistungen</strong></p>
-  <ul>
-    <li><i class="fas fa-lightbulb" style="margin-right: 8px;"></i> Installation von Licht- und Kraftanlagen im Neu- und Altbau</li>
-    <li><i class="fas fa-tools" style="margin-right: 8px;"></i> Reparatur- und Instandhaltungsarbeiten</li>
-    <li><i class="fas fa-phone-volume" style="margin-right: 8px;"></i> Notdienst rund um die Uhr, Kundendienst und Überprüfung elektrischer Anlagen</li>
-    <li><i class="fas fa-check-circle" style="margin-right: 8px;"></i> E-Check und VDE-Überprüfung inkl. Plakettenvergabe</li>
-    <li><i class="fas fa-fire-extinguisher" style="margin-right: 8px;"></i> Brandschutz- und Schottungsmaßnahmen (mit Zertifikat)</li>
-    <li><i class="fas fa-broadcast-tower" style="margin-right: 8px;"></i> Alarmanlagen, TV- und Telekommunikationsbereich, Überspannungsschutz</li>
-    <li><i class="fas fa-thermometer-half" style="margin-right: 8px;"></i> Elektroheizungen</li>
-  </ul>
-</section>
-
-
-  <section id="referenzen">
-    <h2>Referenzen</h2>
-    <ul>
-      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
-      Adolf-Wilbrandt-Str. und Wassidlow-Str., Schwerin<br>
-      <em>Auftraggeber:</em> Neue Lübecker, Norddeutsche Wohnungsbaugenossenschaft e.G.</li>
-
-      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
-      Theodor-Fontane-Str., Hagenow<br>
-      <em>Auftraggeber:</em> Hagenower Wohnungsbaugesellschaft</li>
-
-      <li><strong>Stabsgebäude Bundeswehrkaserne</strong><br>
-      Hagenow<br>
-      <em>Auftraggeber:</em> Bundeswehr Hagenow</li>
-
-      <li><strong>Teilsanierung von Wohnungsaufgängen</strong><br>
-      Beckerstraße und Sandstraße, Schwerin<br>
-      <em>Auftraggeber:</em> SWV</li>
-
-      <li><strong>Nordkorn Baumarkt</strong><br>
-      Schwerin</li>
-
-      <li><strong>Altbausanierung Altstadt</strong><br>
-      Goethe-Str. 76, Wittenburger Str. 73/79/85, R.-Breitscheid-Str. 26,<br>
-      mehrere Häuser auf dem Obotritenring, u.a. Nr. 231 – das Haus des Kölner Bauingenieurs und Architekten</li>
-
-      <li><strong>Neuinstallation von Eigenheimen</strong><br>
-      Diverse Bauten in und um Schwerin</li>
-
-      <li><strong>Villa am Franzosenweg</strong><br>
-      Franzosenweg 10, Schwerin<br>
-      <em>Auftraggeber:</em> Familie Godescheit</li>
-
-      <li><strong>Weitere Referenzen:</strong><br>
-      Neue Lübecker Baugenossenschaft, Stadtwerke Schwerin</li>
-    </ul>
-    <button class="btn">Weitere Projekte ansehen</button>
-  </section>
 
 <section id="ueber-uns">
-  <h2>Über Uns</h2>
-  <div class="about-flow">
-    <img src="images/team.jpg" alt="Firmenfahrzeug" class="about-float">
+  <h2>Über uns</h2>
+  <div class="ueber-uns-content">
+    <img src="images/team.jpg" alt="Unser Team" class="ueber-uns-bild">
     <p>
-    
-      Das Unternehmen Klemkow & Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von Rainer Klemkow.<br><br>
+           Das Unternehmen Klemkow & Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von Rainer Klemkow.<br><br>
 
       Elektroanlagen wurden bereits vom 1904 geborenen Großvater Ewald Klemkow installiert. Er versorgte Schwerin und viele Dörfer in Mecklenburg erstmalig mit Strom.<br><br>
 
@@ -483,6 +946,46 @@ nav {
 
       Das Unternehmen beschäftigt drei weitere Mitarbeiter und hat seinen Sitz in Schwerin-Neumühle.
     </p>
+    <p>
+      Qualität, Sicherheit und persönliche Beratung stehen bei uns im Mittelpunkt. Wir freuen uns darauf, auch Ihr Projekt zu begleiten.
+    </p>
+  </div>
+</section>
+
+
+<section id="leistungen">
+  <h2>Unsere Leistungen</h2>
+  <div class="leistungen-grid">
+    <div class="leistung">
+      <i class="fas fa-bolt"></i>
+      <h3>Elektroinstallationen</h3>
+      <p>Planung und Ausführung von Elektroanlagen im privaten und gewerblichen Bereich.</p>
+    </div>
+    <div class="leistung">
+      <i class="fas fa-tools"></i>
+      <h3>Alt- & Neubau</h3>
+      <p>Installation von Licht- und Kraftanlagen im Neu- und Altbau.</p>
+    </div>
+    <div class="leistung">
+      <i class="fas fa-wrench"></i>
+      <h3>Wartung & Reparatur</h3>
+      <p>Instandhaltung bestehender Anlagen inkl. E-Check nach VDE.</p>
+    </div>
+    <div class="leistung">
+      <i class="fas fa-network-wired"></i>
+      <h3>Netzwerktechnik</h3>
+      <p>Montage von Datennetzwerken und Kommunikationssystemen.</p>
+    </div>
+    <div class="leistung">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Sicherheitssysteme</h3>
+      <p>Alarmanlagen, Videoüberwachung und Türsprechanlagen.</p>
+    </div>
+    <div class="leistung">
+      <i class="fas fa-satellite-dish"></i>
+      <h3>Antennenanlagen</h3>
+      <p>Installation und Wartung von Satelliten- und Empfangsanlagen.</p>
+    </div>
   </div>
 </section>
 
@@ -490,46 +993,124 @@ nav {
 
 
 
+  <section id="referenzen">
+    <h2>Referenzen</h2>
+    <ul>
+      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
+      Adolf-Wilbrandt-Str. und Wassidlow-Str., Schwerin<br>
+      <em>Auftraggeber:</em> Neue Lübecker, Norddeutsche Wohnungsbaugenossenschaft e.G.</li><br>
+
+      <li><strong>Komplexsanierung im Wohnungsbau</strong><br>
+      Theodor-Fontane-Str., Hagenow<br>
+      <em>Auftraggeber:</em> Hagenower Wohnungsbaugesellschaft</li><br>
+
+      <li><strong>Stabsgebäude Bundeswehrkaserne</strong><br>
+      Hagenow<br>
+      <em>Auftraggeber:</em> Bundeswehr Hagenow</li><br>
+
+      <li><strong>Teilsanierung von Wohnungsaufgängen</strong><br>
+      Beckerstraße und Sandstraße, Schwerin<br>
+      <em>Auftraggeber:</em> SWV</li><br>
+
+      <li><strong>Nordkorn Baumarkt</strong><br>
+      Schwerin</li><br>
+
+      <li><strong>Altbausanierung Altstadt</strong><br>
+      Goethe-Str. 76, Wittenburger Str. 73/79/85, R.-Breitscheid-Str. 26,<br>
+      mehrere Häuser auf dem Obotritenring, u.a. Nr. 231 – das Haus des Kölner Bauingenieurs und Architekten</li><br>
+
+      <li><strong>Neuinstallation von Eigenheimen</strong><br>
+      Diverse Bauten in und um Schwerin</li><br>
+
+      <li><strong>Villa am Franzosenweg</strong><br>
+      Franzosenweg 10, Schwerin<br>
+      <em>Auftraggeber:</em> Familie Godescheit</li><br>
+
+      <li><strong>Weitere Referenzen:</strong><br>
+      Neue Lübecker Baugenossenschaft, Stadtwerke Schwerin</li><br>
+    </ul>
+    <button class="btn">Weitere Projekte ansehen</button>
+  </section>
+
+
+
 
 <section id="kontakt">
-  <h2>Kontaktformular</h2>
-  <form action="https://formsubmit.co/info@schwerin-elektro.de" method="POST">
-    <!-- Optional: Spam-Schutz deaktivieren -->
-    <input type="hidden" name="_captcha" value="false">
+  <h2>Kontakt</h2>
+  <div class="kontakt-box">
+    <div class="kontakt-links">
+      <div class="kontakt-info">
+        <p><strong>Klemkow & Lutzenberger Elektroanlagen GbR</strong><br>
+        Neumühler Str. 11<br>
+        19057 Schwerin</p>
 
-    <!-- Optional: Weiterleitung nach erfolgreichem Absenden -->
-    <input type="hidden" name="_next" value="https://www.schwerin-elektro.de/danke.html">
+        <p><strong>Telefon / Fax:</strong> 0385 - 71 93 66<br>
+        <strong>E-Mail:</strong> <a href="mailto:info@schwerin-elektro.de">info@schwerin-elektro.de</a><br>
+        <strong>Internet:</strong> <a href="https://www.schwerin-elektro.de" target="_blank">www.schwerin-elektro.de</a></p>
 
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
+        <p><strong>Firmengründer:</strong> Uwe Klemkow und Bernd Lutzenberger</p>
+      </div>
 
-    <label for="email">E-Mail:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+      <form action="https://formspree.io/f/DEIN-FORMULAR-ID" method="POST" class="kontakt-formular">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
 
-    <label for="message">Nachricht:</label><br>
-    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+        <label for="email">E-Mail:</label>
+        <input type="email" name="email" required>
 
-    <button type="submit" class="btn">Absenden</button>
-  </form>
+        <label for="betreff">Betreff:</label>
+        <input type="text" name="betreff">
+
+        <label for="nachricht">Nachricht:</label>
+        <textarea name="nachricht" required></textarea>
+
+        <button type="submit" class="btn">Absenden</button>
+      </form>
+    </div>
+
+    <div class="kontakt-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11410.985112464286!2d11.366688983269436!3d53.62927150270681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47add98039537fd5%3A0x442b4a6de42227e6!2sKlemkow%20%26%20Lutzenberger%20Elektroanlagen%20GbR!5e1!3m2!1sde!2sde!4v1756202846179!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        width="100%"
+        height="250"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
 </section>
 
 
-  <section id="aktuelles">
-    <h2>Aktuelles</h2>
-    <p>Hier könnten Neuigkeiten, Angebote oder aktuelle Projekte erscheinen. Bleiben Sie informiert!</p>
-  </section>
+
+
+
+<section id="aktuelles">
+  <h2>Aktuelles</h2>
+  <div class="aktuelles-content">
+    <p>Hier finden Sie aktuelle Informationen, Projekte und Neuigkeiten rund um unser Unternehmen.</p>
+
+    <ul>
+      <li>Neue Photovoltaik-Anlage in Betrieb genommen – August 2025</li>
+      <li>Teilnahme an der Schweriner Energiemesse – Juli 2025</li>
+      <li>Ausbildungsplätze für 2026 jetzt verfügbar</li>
+    </ul>
+  </div>
+</section>
+
 
 <footer>
   <h3>Impressum</h3>
-  <p>
-    Klemkow & Lutzenberger Elektroanlagen GbR<br>
+   <p class="footer-text">© 2025 Klemkow & Lutzenberger Elektroanlagen GbR<br>
     Neumühler Str. 11<br>
     19057 Schwerin<br>
     Telefon / Fax: 0385 - 71 93 66<br>
     E-Mail: info@schwerin-elektro.de<br>
     <a href="#kontakt">→ Kontaktformular nutzen</a><br>
     Internet: <a href="https://www.schwerin-elektro.de" target="_blank">www.schwerin-elektro.de</a><br>
-    Firmengründer: Uwe Klemkow und Bernd Lutzenberger
+    Firmengründer:<br>
+	Uwe Klemkow und Bernd Lutzenberger
   </p>
 
   <h4>Haftungshinweis</h4>
