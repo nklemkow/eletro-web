@@ -1199,22 +1199,33 @@ header {
   </p>
 </footer>
 <script>
-  // Select the burger icon and the mobile navigation menu
+  // Select all necessary elements from the HTML
   const burger = document.querySelector('.burger');
   const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-  // Select all links inside the mobile menu
   const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
 
-  // Toggle menu when burger icon is clicked
-  burger.addEventListener('click', () => {
+  // Toggle the menu's 'active' class on burger click
+  burger.addEventListener('click', (event) => {
     mobileNavMenu.classList.toggle('active');
+    event.stopPropagation(); // Prevents the document click event from firing immediately
   });
 
-  // Close menu when a link is clicked
+  // Close the menu when a link inside it is clicked
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
       mobileNavMenu.classList.remove('active');
     });
+  });
+
+  // Close the menu when a click happens outside the menu
+  document.addEventListener('click', (event) => {
+    // Check if the click target is NOT the burger or inside the menu
+    const isClickInsideMenu = mobileNavMenu.contains(event.target);
+    const isClickOnBurger = burger.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnBurger) {
+      mobileNavMenu.classList.remove('active');
+    }
   });
 </script>
 </body>
