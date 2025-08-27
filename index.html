@@ -1199,11 +1199,22 @@ header {
   </p>
 </footer>
 <script>
+  // Select the burger icon and the mobile navigation menu
   const burger = document.querySelector('.burger');
   const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+  // Select all links inside the mobile menu
+  const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
 
+  // Toggle menu when burger icon is clicked
   burger.addEventListener('click', () => {
     mobileNavMenu.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNavMenu.classList.remove('active');
+    });
   });
 </script>
 </body>
