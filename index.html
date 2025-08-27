@@ -993,19 +993,7 @@ header {
 
   <!-- deine Links -->
 </div>
-<script>
-  // Menü toggeln
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("show");
-  }
 
-  // Menü schließen nach Klick auf Link
-  document.querySelectorAll('#navLinks a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById("navLinks").classList.remove("show");
-    });
-  });
-</script>
 
 <header>
   <div class="header-text">
@@ -1210,6 +1198,13 @@ header {
     Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
   </p>
 </footer>
+<script>
+  const burger = document.querySelector('.burger');
+  const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
+  burger.addEventListener('click', () => {
+    mobileNavMenu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
