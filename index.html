@@ -211,12 +211,24 @@
   }
   .logo-bar {
     flex-direction: column;
-    align-items: left;
+    align-items: center;
+	/* Mobile tweaks - NUR für Mobilgeräte */
+@media (max-width: 768px) {
+  .logo-center-combined {
+    margin-right: 50px; /* Verschiebt Logo+Text nach links */
+    max-width: 90%; /* Verhindert Überlappung mit Burger-Button */
+  }
+  
+  .logo-left h1,
+  .logo-left h2 {
+    font-size: 0.9rem; /* Leicht verkleinert für besseren Fit */
+  }
+}
   }
 }
 /* Hero section */
 header {
-  background-image: url('https://placehold.co/1200x600/003366/white?text=Elektroanlagen');
+  background-image: url('images/header-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -649,7 +661,7 @@ footer a:hover {
     <div class="logo-bar">
       <div class="logo-center-combined">
         <div class="logo-center">
-          <img src="https://placehold.co/80x80/003366/white?text=KL" alt="Klemkow & Lutzenberger Logo">
+          <img src="images/logo.svg" alt="Klemkow & Lutzenberger Logo">
         </div>
         <div class="logo-left">
           <h1>Elektroanlagen</h1>
@@ -708,7 +720,7 @@ footer a:hover {
   <section id="ueber-uns">
     <h2>Über uns</h2>
     <div class="ueber-uns-content">
-      <img src="https://placehold.co/200x200/003366/white?text=Team" alt="Unser Team" class="ueber-uns-bild">
+      <img src="images/team.jpg" alt="Unser Team" class="ueber-uns-bild">
       <p>
         Das Unternehmen Klemkow &amp; Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister
         Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von
