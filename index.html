@@ -104,22 +104,25 @@
 @media (max-width: 768px) {
   .logo-right {
     width: 100%;
-    text-align: center; /* center under logo block */
+    text-align: left; /* 👈 align to the left */
     margin-top: 0.5rem;
   }
+
   .logo-right p {
     font-size: 0.9rem;
     margin: 0;
     display: flex;
-    justify-content: center;
-    gap: 0.5rem; /* space around separator */
-    flex-wrap: wrap; /* in case screen is too small, allow wrapping */
+    justify-content: flex-start; /* 👈 start at the left edge */
+    gap: 0.5rem;
+    flex-wrap: wrap; /* in case it doesn’t fit */
   }
+
   .logo-right .separator {
     color: #888;
     margin: 0 0.25rem;
   }
 }
+
 /* Main nav */
 .main-nav {
   background-color: #003366;
@@ -624,10 +627,13 @@ footer a:hover {
           <p>Inh. Bernd Lutzenberger<br>Innungsbetrieb</p>
         </div>
       </div>
-      <div class="logo-right">
-        <p>📞 0385 / 123 456</p>
-        <p><a href="#kontakt">✉️ info@elektro-klemkow.de</a></p>
-      </div>
+<div class="logo-right">
+  <p>
+    📞 0385 / 123 456 
+    <span class="separator">|</span> 
+    <a href="#kontakt">✉️ info@elektro-klemkow.de</a>
+  </p>
+</div>
     </div>
 
     <!-- Main Navigation -->
