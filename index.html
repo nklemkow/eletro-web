@@ -993,14 +993,7 @@ header {
 
   <!-- deine Links -->
 </div>
-<script>
-  const burger = document.querySelector('.burger');
-  const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
-  burger.addEventListener('click', () => {
-    mobileNavMenu.classList.toggle('active');
-  });
-</script>
 
 <header>
   <div class="header-text">
@@ -1205,6 +1198,13 @@ header {
     Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
   </p>
 </footer>
+<script>
+  const burger = document.querySelector('.burger');
+  const mobileNavMenu = document.querySelector('.mobile-nav-menu');
 
+  burger.addEventListener('click', () => {
+    mobileNavMenu.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
