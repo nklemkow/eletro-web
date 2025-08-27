@@ -15,7 +15,7 @@
   <style>
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px; /* Adjust to sticky header height */
+      scroll-padding-top: 150px; /* Adjust to sticky header height */
     }
 
     body {
@@ -60,7 +60,7 @@
   align-items: center;
   background-color: white;
   padding: 1rem 2rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0,51,102,0.55);
   gap: 1.5rem;
 }
 
@@ -152,24 +152,34 @@
 .main-nav a:hover {
   color: #66ccff;
 }
-
+/* Nur für Geräte mit Maus/Hover-Fähigkeit */
+@media (hover: hover) {
+  .mobile-nav-list li:hover {
+    background-color: #0077cc;
+  }
+  .mobile-nav-list li:hover a {
+    color: white !important;
+  }
+}
 /* Mobile nav */
 .burger {
+
   display: none;
   cursor: pointer;
   position: fixed;
   top: 20px;
-  right: 20px;
+  right: -6px;
   z-index: 1001;
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    caret-color: transparent; /* Versteckt den blinkenden Cursor */
 }
 .burger div {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: #0074D9;
   margin: 5px;
   transition: all 0.3s ease;
 }
@@ -178,7 +188,7 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 70%;
+  width: 43%;
   background-color: #f8f8f8;
   display: flex;
   flex-direction: column;
@@ -187,9 +197,11 @@
   transition: transform 0.5s ease-in;
   z-index: 1000;
   padding-top: 80px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
 }
 .mobile-nav-menu.active {
   transform: translateX(0%);
+  background-color: #fff;
 }
 .mobile-nav-list {
   list-style: none;
@@ -202,10 +214,30 @@
 .mobile-nav-list a {
   text-decoration: none;
   color: #003366;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
 }
+/* Hover/Active Effekt */
+.mobile-nav-list li:active {
 
+}
+
+/* Schließen-Button hinzufügen */
+.mobile-nav-close {
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Geändert von right zu left */
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #003366;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+.mobile-nav-list li:active a {
+  color: white;
+}
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .main-nav {
@@ -240,17 +272,29 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  padding: 4rem 0;
+    height: 85vh;
+	min-height: 500px;
+  display: flex;
+  align-items: center; /* Vertikal zentrieren */
+  justify-content: center; /* Horizontal zentrieren */
   color: white;
+  
 }
 
-/* Overlay */
+/* Subtle gradient overlay */
 header::after {
   content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
   z-index: 0;
 }
 
@@ -258,9 +302,10 @@ header::after {
 .header-text {
   position: relative;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.72);
-  padding: 1rem;
-  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.94);
+  padding: 3rem 1rem;
+  padding-top: 2rem;
+  border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   max-width: 500px;
   margin: auto;
@@ -324,11 +369,11 @@ user-select: none;
 }
 /* Section defaults */
 section {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   max-width: 800px;
   margin: auto;
   text-align: left;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
 }
 section h2 {
   text-align: center;
@@ -363,7 +408,7 @@ margin: auto;
 .ueber-uns-bild {
   float: right;
   margin: 0 0 1rem 1.5rem;
-  width: 200px;
+  width: 347px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -378,10 +423,10 @@ margin: auto;
 }
 /* Leistungen Section */
 #leistungen {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background-color: #fff;
   text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
 	  caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
 
 }
@@ -442,9 +487,9 @@ margin: auto;
 /* Referenzen Section */
 #referenzen {
   background-color: #ffffff;
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.35);
   max-width: 800px;
  margin: auto;
   text-align: left;
@@ -483,10 +528,10 @@ margin: auto;
 
 /* Kontakt Section */
 #kontakt {
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background-color: #fff;
   text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.35);
 	  caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
 }
 
@@ -586,9 +631,9 @@ margin: auto;
 /* Aktuelles Section */
 #aktuelles {
   background-color: #ffffff;
- padding: 6rem 2rem;
+ padding: 3rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.35);
   max-width: 800px;
   text-align: center;
     caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
@@ -712,6 +757,10 @@ footer a:hover {
 
     <!-- Mobile Navigation Menu -->
     <div class="mobile-nav-menu">
+	 <button class="mobile-nav-close" aria-label="Menü schließen">
+    <i class="fas fa-times"></i> <!-- Font Awesome X-Icon -->
+  </button>
+  <ul class="mobile-nav-list">
       <ul class="mobile-nav-list">
         <li><a href="#startseite">Startseite</a></li>
         <li><a href="#ueber-uns">Über uns</a></li>
@@ -958,40 +1007,47 @@ footer a:hover {
   </footer>
 
   <script>
-    // Elements
-    const burger = document.querySelector('.burger');
-    const mobileNavMenu = document.querySelector('.mobile-nav-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+ // Elements
+const burger = document.querySelector('.burger');
+const mobileNavMenu = document.querySelector('.mobile-nav-menu');
+const mobileLinks = document.querySelectorAll('.mobile-nav-menu a');
+const closeButton = document.querySelector('.mobile-nav-close'); // Close-Button
 
-    // Toggle menu on burger click
-    burger.addEventListener('click', (event) => {
-      mobileNavMenu.classList.toggle('active');
-      event.stopPropagation(); // prevent immediate close
-    });
+// Toggle menu on burger click
+burger.addEventListener('click', (event) => {
+  mobileNavMenu.classList.toggle('active');
+  event.stopPropagation();
+});
 
-    // Close menu when clicking a link
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNavMenu.classList.remove('active');
-      });
-    });
+// Close menu when clicking close button
+closeButton.addEventListener('click', () => {
+  mobileNavMenu.classList.remove('active');
+});
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (event) => {
-      const isClickInsideMenu = mobileNavMenu.contains(event.target);
-      const isClickOnBurger = burger.contains(event.target);
+// Close menu when clicking a link
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNavMenu.classList.remove('active');
+  });
+});
 
-      if (!isClickInsideMenu && !isClickOnBurger) {
-        mobileNavMenu.classList.remove('active');
-      }
-    });
+// Close menu when clicking outside
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = mobileNavMenu.contains(event.target);
+  const isClickOnBurger = burger.contains(event.target);
+  const isClickOnClose = closeButton.contains(event.target);
 
-    // Close with ESC key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === "Escape") {
-        mobileNavMenu.classList.remove('active');
-      }
-    });
+  if (!isClickInsideMenu && !isClickOnBurger && !isClickOnClose) {
+    mobileNavMenu.classList.remove('active');
+  }
+});
+
+// Close with ESC key
+document.addEventListener('keydown', (event) => {
+  if (event.key === "Escape") {
+    mobileNavMenu.classList.remove('active');
+  }
+});
   </script>
 </body>
 </html>
