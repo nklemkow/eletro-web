@@ -15,10 +15,12 @@
   <style>
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 180px; /* Adjust to sticky header height */
+      scroll-padding-top: 100px; /* Adjust to sticky header height */
     }
 
     body {
+
+
       margin: 0;
       font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       font-size: 16px;
@@ -248,13 +250,18 @@ header::after {
   display: inline-block;
   padding-bottom: 0.2rem;
   margin-bottom: 0;
+    line-height: 1.3;
 }
 .header-text h2 {
   font-size: 1.1rem;
   font-weight: 500;
   color: #605F27;
   margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
+
+
+
 .header-text p {
   font-size: 1rem;
   color: #444;
@@ -287,7 +294,7 @@ header::after {
 }
 /* Section defaults */
 section {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   max-width: 800px;
   margin: auto;
   text-align: left;
@@ -299,6 +306,9 @@ section h2 {
   color: #003366;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   position: relative;
+    margin-top: 0;
+  margin-bottom: 3rem;
+    line-height: 1.3;
 }
 section h2::after {
   content: "";
@@ -312,9 +322,10 @@ section h2::after {
 
 /* Über uns */
 .ueber-uns-content {
+margin: auto;
   font-size: 1.1rem;
   color: #444;
-  line-height: 1.6;
+  line-height: 1.3;
 }
 .ueber-uns-bild {
   float: right;
@@ -334,7 +345,7 @@ section h2::after {
 }
 /* Leistungen Section */
 #leistungen {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   background-color: #fff;
   text-align: center;
 }
@@ -388,11 +399,11 @@ section h2::after {
 /* Referenzen Section */
 #referenzen {
   background-color: #ffffff;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   max-width: 800px;
-  margin: 2rem auto;
+ margin: auto;
   text-align: left;
 }
 
@@ -420,7 +431,7 @@ section h2::after {
 }
 .referenzen-list li {
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.3;
   color: #444;
 }
 
@@ -431,7 +442,8 @@ section h2::after {
 }
 /* Kontakt Section */
 #kontakt {
-  padding: 4rem 2rem;
+
+  padding: 6rem 2rem;
   background-color: #fff;
   text-align: center;
 }
@@ -441,8 +453,8 @@ section h2::after {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 2rem;
-  background-color: #f9f9f9;
   padding: 2rem;
+  background-color: #f9f9f9;
   border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   max-width: 900px;
@@ -455,7 +467,7 @@ section h2::after {
   flex: 1 1 600px;
   font-size: 1.1rem;
   color: #444;
-  line-height: 1.6;
+  line-height: 1.3;
   text-align: left;
 }
 .kontakt-info a {
@@ -532,21 +544,22 @@ section h2::after {
 /* Aktuelles Section */
 #aktuelles {
   background-color: #ffffff;
-  padding: 4rem 2rem;
+ padding: 6rem 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   max-width: 800px;
-  margin: 2rem auto;
+
   text-align: center;
 }
 
 #aktuelles h2 {
   font-size: 2rem;
-  margin-top: 0;
-  margin-bottom: 3rem;
+margin: auto;
   color: #003366;
   text-align: center;
   position: relative;
+    line-height: 1.3;
+
 }
 #aktuelles h2::after {
   content: "";
@@ -556,14 +569,16 @@ section h2::after {
   background-color: #0077cc;
   margin: 0.5rem auto 0;
   border-radius: 2px;
+    line-height: 1.3;
 }
 
 /* Content */
 .aktuelles-content {
   font-size: 1.1rem;
   color: #444;
-  line-height: 1.6;
+  line-height: 1.3;
   text-align: left;
+  margin-top: 3rem;
 }
 .aktuelles-content ul {
   padding-left: 1.2rem;
@@ -609,11 +624,12 @@ footer a:hover {
   font-size: 0.9rem;
   color: #cccccc;
 }
-
+ 
 
   </style>
 </head>
 <body>
+  <div id="startseite"></div>
   <!-- Sticky Header -->
   <div class="sticky-header">
     <div class="logo-bar">
@@ -640,9 +656,10 @@ footer a:hover {
     <nav class="main-nav">
       <ul>
         <li><a href="#startseite">Startseite</a></li>
+		        <li><a href="#ueber-uns">Über uns</a></li>
         <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#referenzen">Referenzen</a></li>
-        <li><a href="#ueber-uns">Über uns</a></li>
+
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="#aktuelles">Aktuelles</a></li>
       </ul>
@@ -658,9 +675,9 @@ footer a:hover {
       <div class="mobile-nav-menu">
         <ul class="mobile-nav-list">
           <li><a href="#startseite">Startseite</a></li>
-          <li><a href="#leistungen">Leistungen</a></li>
-          <li><a href="#referenzen">Referenzen</a></li>
-          <li><a href="#ueber-uns">Über uns</a></li>
+		    <li><a href="#ueber-uns">Über uns</a></li>
+			      <li><a href="#leistungen">Leistungen</a></li>    
+          <li><a href="#referenzen">Referenzen</a></li>        
           <li><a href="#kontakt">Kontakt</a></li>
           <li><a href="#aktuelles">Aktuelles</a></li>
         </ul>
