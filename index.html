@@ -426,33 +426,46 @@ section h2::after {
   border-radius: 2px;
 }
 
-/* Über uns */
+/* Über uns Section - Mobile Optimierung */
 .ueber-uns-content {
-margin: auto;
+  margin: auto;
   font-size: 1.1rem;
   color: #444;
-  line-height: 1.3;
-  
+  line-height: 1.5;
+  text-align: justify; /* Blocksatz für besseres Erscheinungsbild */
 }
+
 .ueber-uns-bild {
   float: right;
-  margin: a;
+  margin: 0 0 1rem 1.5rem;
   width: 344px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Responsive fix for image */
+/* Responsive fix for image - KORRIGIERT */
 @media (max-width: 768px) {
   .ueber-uns-bild {
-
-   
+    float: none;
     display: block;
-      margin: auto;
+    margin: 0 auto 1.5rem; /* Zentriert mit Abstand nach unten */
+    width: 100%; /* Responsive Breite */
+    max-width: 344px; /* Maximale Breite beibehalten */
   }
-  .ueber-uns-content{
-
-    float: center;
+  
+  .ueber-uns-content {
+    text-align: left; /* Linksbündig auf Mobilgeräten */
+    float: none; /* Float zurücksetzen */
+    width: 100%;
+  }
+  
+  /* Bessere Abstände für mobile Lesbarkeit */
+  #ueber-uns {
+    padding: 2rem 1rem;
+  }
+  
+  .ueber-uns-content p {
+    margin-bottom: 1.2rem;
   }
 }
 /* Leistungen Section */
