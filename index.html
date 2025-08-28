@@ -136,7 +136,7 @@
   .logo-right p {
     font-size: 0.8rem;
     margin: 0;
-	
+	flex-direction:row;
     display: flex;
     justify-content: flex-start; /* 👈 start at the left edge */
     gap: 0.25rem;
@@ -331,7 +331,7 @@ header::after {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
   max-width: 500px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 80px;
   text-align: center;
 }
 
@@ -660,7 +660,7 @@ margin: auto;
 #aktuelles {
   background-color: #ffffff;
  padding: 3rem 2rem;
- min-height: 500px;
+ min-height: 420px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.35);
   text-align: center;
@@ -675,7 +675,7 @@ margin: auto;
   text-align: center;
   position: relative;
     line-height: 1.3;
-	margin-bottom: 6rem;
+	margin-bottom: 3rem;
 	margin-top: 0;
 	 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -696,15 +696,22 @@ margin: auto;
   color: #444;
   line-height: 1.3;
   text-align: left;
-
   margin-top: 3rem;}
   
+ .aktuelles-content h3{
+text-align: center;
+color: grey;
+color: grey;
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+margin-bottom: 2em;
+ }
+ 
 .aktuelles-content ul {
   padding-left: 1.2rem;
   margin-top: 1rem;
 }
 .aktuelles-content li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 /* Footer */
 footer {
@@ -1006,7 +1013,7 @@ footer a:hover {
   <section id="aktuelles">
     <h2>Aktuelles</h2>
     <div class="aktuelles-content">
-      <p>Hier finden Sie aktuelle Informationen, Projekte und Neuigkeiten rund um unser Unternehmen.</p>
+      <h3>Hier finden Sie aktuelle Informationen, Projekte und Neuigkeiten rund um unser Unternehmen.</h3>
 
       <ul>
         <li>Neue Photovoltaik-Anlage in Betrieb genommen – August 2025</li>
