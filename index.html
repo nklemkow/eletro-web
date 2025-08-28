@@ -56,8 +56,9 @@
 /* Logo bar */
 .logo-bar {
   display: flex;
+  align-items: flex-start; /* Oben ausrichten */
   justify-content: space-between;
-  align-items: center;
+    align-items: flex-start; /* Oben ausrichten */
   background-color: white;
   padding: 1rem 2rem;
   box-shadow: 0 1px 3px rgba(0,51,102,0.55);
@@ -68,13 +69,16 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
+    z-index: 1;
+  position: relative;
 }
 
 .logo-right {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: left;
+  text-align: right;
+   gap: 0.3rem;
 }
 
 .logo-bar img {
@@ -87,13 +91,25 @@
 }
 
 .logo-left h1,
-.logo-left h2,
 .logo-left p,
+.logo-left h2 {
+  margin: 0.0rem -0.4rem;
+  font-size: 0.95rem;
+  color: #444;
+  
+}
+
 .logo-right p {
   margin: 0.0rem -0.4rem;
   font-size: 0.95rem;
   color: #444;
+   display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  
 }
+
+
 
 .logo-right a {
   color: #0077cc;
@@ -106,24 +122,28 @@
 /* Mobile tweaks */
 @media (max-width: 768px) {
   .logo-right {
+  border-top: 1px solid rgba(0, 0, 0, 0.12); /* Dezente Trennlinie */
+      padding-top: 0.8rem;
+    margin-top: 0.8rem;
+	
     width: 100%;
-    text-align: left; /* 👈 align to the left */
+    text-align: right; /* 👈 align to the left */
     margin-top: 0.5rem;
+	 align-items: flex-end;
+	 
   }
 
   .logo-right p {
     font-size: 0.8rem;
     margin: 0;
+	
     display: flex;
     justify-content: flex-start; /* 👈 start at the left edge */
     gap: 0.25rem;
     flex-wrap: wrap; /* in case it doesn’t fit */
   }
 
-  .logo-right .separator {
-    color: #888;
-    margin: 0 0.25rem;
-  }
+
 }
 
 
@@ -254,6 +274,7 @@
 	/* Mobile tweaks - NUR für Mobilgeräte */
 @media (max-width: 768px) {
   .logo-center-combined {
+  
     margin-right: 50px; /* Verschiebt Logo+Text nach links */
     max-width: 90%; /* Verhindert Überlappung mit Burger-Button */
   }
@@ -304,12 +325,13 @@ header::after {
   position: relative;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.85);
-  padding: 2.8rem 1rem;
-  padding-top: 0;
+  padding: 2.8rem 3.5rem;
+  padding-top: 0.5rem;
   border-radius: 5px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
   max-width: 500px;
   margin: auto;
+  margin-top: 150px;
   text-align: center;
 }
 
@@ -320,7 +342,7 @@ header::after {
   color: #003366;
   border-bottom: 2px solid red;
   display: inline-block;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.15rem;
   margin-bottom: 0;
     line-height: 1.3;
 	user-select: none;
@@ -329,25 +351,27 @@ header::after {
   font-size: 1.3rem;
   font-weight: 550;
   color: #000000;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
     line-height: 1.3;
 user-select: none;
+margin-top:0.0;
 }
 
 .header-text p {
   font-size: 1.1rem;
   color: #000000;
-  margin-bottom: 1rem;
+margin: 0;  
   font-weight: 400;
 user-select: none;
 }
 
 /* Decorative separator */
 .trenner {
-  width: 60px;
+  width: 160px;
+
   height: 2px;
   background-color: #0077cc;
-  margin: 1rem auto;
+  margin: 2.6rem auto;
   border-radius: 1px;
 }
 
@@ -355,10 +379,11 @@ user-select: none;
 .btn {
   background-color: #0077cc;
   color: white;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
+
+  padding: 0.25rem 0.5rem;
+    font-size: 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -640,6 +665,7 @@ margin: auto;
   box-shadow: 0 2px 5px rgba(0,0,0,0.35);
   text-align: center;
   caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
+    margin-bottom: 3rem;
 }
 
 #aktuelles h2 {
@@ -649,7 +675,7 @@ margin: auto;
   text-align: center;
   position: relative;
     line-height: 1.3;
-	margin-bottom: 3rem;
+	margin-bottom: 6rem;
 	margin-top: 0;
 	 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -670,8 +696,9 @@ margin: auto;
   color: #444;
   line-height: 1.3;
   text-align: left;
-  margin-top: 3rem;
-}
+
+  margin-top: 3rem;}
+  
 .aktuelles-content ul {
   padding-left: 1.2rem;
   margin-top: 1rem;
@@ -684,8 +711,8 @@ footer {
   background-color: #003366;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
-  font-size: 1rem;
+  padding: 1rem 0;
+  font-size: 0.8rem;
   text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -743,7 +770,7 @@ footer a:hover {
       <div class="logo-right">
         <p>
           📞 0385 - 71 93 66 
-          <span class="separator">|</span> 
+         
           <a href="#kontakt">✉️ info@elektro-klemkow.de</a>
         </p>
       </div>
