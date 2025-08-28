@@ -152,6 +152,8 @@
 
 /* Main nav */
 .main-nav {
+  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+
   background-color: #003366;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   padding: 0.65rem 0;
@@ -178,11 +180,14 @@
 @media (hover: hover) {
   .mobile-nav-list li:hover {
     background-color: #0077cc;
+	
   }
   .mobile-nav-list li:hover a {
     color: white !important;
   }
-}
+}  .mobile-nav-list li:hover a::before {
+    color: white !important;
+  }
 /* Mobile nav */
 .burger {
 
@@ -201,7 +206,8 @@
 .burger div {
   width: 25px;
   height: 3px;
-  background-color: #0074D9;
+  background-color: #FFC107; /* Überschriften in Gelb */
+
   margin: 5px;
   transition: all 0.3s ease;
 }
@@ -229,20 +235,109 @@
   list-style: none;
   padding: 0;
   margin-top: 2rem;
+  width: 100%;
 }
 .mobile-nav-list li {
-  padding: 1rem 0;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Text-Selektion verhindern */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .mobile-nav-list a {
   text-decoration: none;
   color: #003366;
   font-size: 1.1rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
 }
+
+/* Icons vor den Navigationstexten */
+.mobile-nav-list a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+/* Spezifische Icons für jede Navigation */
+.mobile-nav-list li:nth-child(1) a::before { /* Startseite */
+  content: "\f015"; /* Home Icon */
+  color: #0077cc;
+}
+
+.mobile-nav-list li:nth-child(2) a::before { /* Über uns */
+  content: "\f0c0"; /* Users Icon */
+  color: #0077cc;
+}
+
+.mobile-nav-list li:nth-child(3) a::before { /* Leistungen */
+  content: "\f085"; /* Settings Icon */
+  color: #0077cc;
+}
+
+.mobile-nav-list li:nth-child(4) a::before { /* Referenzen */
+  content: "\f0a1"; /* Briefcase Icon */
+  color: #0077cc;
+}
+
+.mobile-nav-list li:nth-child(5) a::before { /* Kontakt */
+  content: "\f0e0"; /* Envelope Icon */
+  color: #0077cc;
+}
+
+.mobile-nav-list li:nth-child(6) a::before { /* Aktuelles */
+  content: "\f1ea"; /* Newspaper Icon */
+  color: #0077cc;
+}
+
 /* Hover/Active Effekt */
 .mobile-nav-list li:active {
+  background-color: #d00000; /* Rot für aktive Mobile-Menüpunkte */
+.mobile-nav-list li:active,
+.mobile-nav-list li:hover {
+  background-color: #0077cc;
+  width: 100%;
+}
+
+.mobile-nav-list li:active a,
+.mobile-nav-list li:hover a {
+  color: white !important;
+}
+
+.mobile-nav-list li:active a::before,
+.mobile-nav-list li:hover a::before {
+  color: white !important;
+}
+
+/* Cursor auf Pointer setzen für bessere UX */
+.mobile-nav-list li {
+  cursor: pointer;
+}
+
+/* Text-Selektion komplett deaktivieren für Navigation */
+.mobile-nav-menu,
+.mobile-nav-menu * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 }
+
+
 
 /* Schließen-Button hinzufügen */
 .mobile-nav-close {
@@ -264,11 +359,13 @@
 @media (max-width: 768px) {
   .main-nav {
     display: none;
+	  background: linear-gradient(135deg, #003366 0%, #004080 100%);
+
   }
   .burger {
     display: block;
 	
-	background-color:  #003366;
+	background-color:   #d00000;
   }
   .logo-bar {
     flex-direction: column;
@@ -283,14 +380,14 @@
   
   .logo-left h1,
   .logo-left h2 {
-    font-size: 0.9rem; /* Leicht verkleinert für besseren Fit */
+    font-size: 1rem; /* Leicht verkleinert für besseren Fit */
   }
 }
   }
 }
 /* Hero section */
 header {
-  background-image: url('images/header-bg.jpg');
+  background-image: url('gfx/header-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -324,13 +421,14 @@ header::after {
 
 /* Header text container */
 .header-text {
+
   position: relative;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.85);
   padding: 2.8rem 3.5rem;
   padding-top: 0.5rem;
   border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   max-width: 500px;
   margin: auto;
   margin-top: 80px;
@@ -342,7 +440,7 @@ header::after {
   font-size: 2.2rem;
   font-weight: 670;
   color: #003366;
-  border-bottom: 2px solid red;
+  border-bottom: 3px solid #d00000; /* Dickere rote Linie */
   display: inline-block;
   padding-bottom: 0.15rem;
   margin-bottom: 0;
@@ -379,7 +477,9 @@ user-select: none;
 
 /* Call-to-action button */
 .btn {
-  background-color: #0077cc;
+  background-color: #d00000; /* Rote Buttons statt blau */
+    background: linear-gradient(to bottom, #d00000, #a00000);
+
   color: white;
 
   padding: 0.25rem 0.5rem;
@@ -393,7 +493,9 @@ user-select: none;
 
 }
 .btn:hover {
-  background-color: #005fa3;
+  background-color: #b30000; /* Dunkleres Rot beim Hover */
+    color: #003366; /* Dunkelblauer Text für Kontrast */
+
 }
 /* Section defaults */
 section {
@@ -421,7 +523,7 @@ section h2::after {
   display: block;
   width: 60px;
   height: 3px;
-  background-color: #0077cc;
+  background-color: #FFC107; /* Trennlinien in Gelb */
   margin: 0.5rem auto 0;
   border-radius: 2px;
 }
@@ -432,7 +534,6 @@ section h2::after {
   font-size: 1.1rem;
   color: #444;
   line-height: 1.5;
-  text-align: justify; /* Blocksatz für besseres Erscheinungsbild */
 }
 
 .ueber-uns-bild {
@@ -449,14 +550,16 @@ section h2::after {
     float: none;
     display: block;
     margin: 0 auto 1.5rem; /* Zentriert mit Abstand nach unten */
-    width: 100%; /* Responsive Breite */
-    max-width: 344px; /* Maximale Breite beibehalten */
+    width: 85%; /* Prozentuale Breite für Responsive Design */
+    max-width: 300px; /* Maximale Breite begrenzen */
+    height: auto; /* Seitenverhältnis beibehalten */
   }
   
   .ueber-uns-content {
-    text-align: left; /* Linksbündig auf Mobilgeräten */
-    float: none; /* Float zurücksetzen */
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+	    line-height: 1.6; /* Etwas mehr Zeilenabstand */
+
   }
   
   /* Bessere Abstände für mobile Lesbarkeit */
@@ -466,6 +569,20 @@ section h2::after {
   
   .ueber-uns-content p {
     margin-bottom: 1.2rem;
+	 text-align: justify; /* Blocksatz für gleichmäßigeres Erscheinungsbild */
+    hyphens: auto; /* Automatische Silbentrennung */
+  }
+}
+
+/* Verbesserte Typografie für Mobile */
+@media (max-width: 768px) {
+  #ueber-uns h2 {
+    margin-bottom: 1.5rem; /* Weniger Abstand unter der Überschrift */
+    font-size: 1.8rem;
+  }
+  
+  .ueber-uns-content {
+    font-size: 1rem; /* Etwas kleinere Schrift für bessere Lesbarkeit */
   }
 }
 /* Leistungen Section */
@@ -477,6 +594,8 @@ section h2::after {
 	  caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
 
 }
+
+
 
 .leistungen-grid {
   display: flex;
@@ -504,7 +623,8 @@ section h2::after {
 
 .leistung i {
   font-size: 2rem;
-  color: #d00000;
+    color: #FFC107; /* Icons in Goldgelb statt Rot */
+
  
   margin-top: 1rem;
 }
@@ -525,6 +645,8 @@ section h2::after {
     align-items: center;
   }
   .leistung {
+    box-shadow: 0 4px 12px rgba(0, 51, 102, 0.15);
+
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -663,6 +785,7 @@ section h2::after {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   margin-top: 1.1rem;
 }
 
 /* Responsive */
@@ -675,7 +798,7 @@ section h2::after {
     position: static;
     width: 100%;
     height: 200px;
-    margin-top: 1rem;
+   
   }
   
 
@@ -690,6 +813,11 @@ section h2::after {
   text-align: center;
   caret-color: transparent; /* Betrifft den gesamten Logo-Bereich */
     margin-bottom: 3rem;
+}
+
+/* Oder für spezifische Elemente */
+.aktuelles-content h3 {
+  color: #FFC107; /* Überschriften in Gelb */
 }
 
 #aktuelles h2 {
@@ -737,6 +865,12 @@ margin-bottom: 2em;
 .aktuelles-content li {
   margin-bottom: 1rem;
 }
+
+/* Sanftere Übergänge */
+.btn, .leistung, .main-nav a {
+  transition: all 0.3s ease;
+}
+
 /* Footer */
 footer {
   background-color: #003366;
@@ -790,7 +924,7 @@ footer a:hover {
     <div class="logo-bar">
       <div class="logo-center-combined">
         <div class="logo-center">
-          <img src="images/logo.svg" alt="Klemkow & Lutzenberger Logo">
+          <img src="gfx/logo.svg" alt="Klemkow & Lutzenberger Logo">
         </div>
         <div class="logo-left">
           <h1>Elektroanlagen</h1>
@@ -802,7 +936,7 @@ footer a:hover {
         <p>
           📞 0385 - 71 93 66 
          
-          <a href="#kontakt">✉️ info@elektro-klemkow.de</a>
+          <a href="#kontakt">✉️ buero@elektro-klemkow.de</a>
         </p>
       </div>
     </div>
@@ -853,7 +987,7 @@ footer a:hover {
   <section id="ueber-uns">
     <h2>Über uns</h2>
     <div class="ueber-uns-content">
-      <img src="images/team.jpg" alt="Unser Team" class="ueber-uns-bild">
+      <img src="gfx/team.jpg" alt="Unser Team" class="ueber-uns-bild">
       <p>
         Das Unternehmen Klemkow &amp; Lutzenberger Elektroanlagen GbR wurde 1992 von dem Elektromeister
         Uwe Klemkow und Bernd Lutzenberger gegründet – hervorgegangen aus dem Familienbetrieb von
